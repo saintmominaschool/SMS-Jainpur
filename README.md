@@ -12,6 +12,7 @@
             --light: #f0f8ff;
             --white: #ffffff;
             --shadow: 0 4px 20px rgba(0,0,0,0.1);
+            --section-height: 100vh;
         }
         
         * {
@@ -26,76 +27,13 @@
             color: #333;
             line-height: 1.6;
             background-attachment: fixed;
+            overflow-x: hidden;
         }
         
-        /* Mobile Navigation */
-        .mobile-nav {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            z-index: 1000;
-            padding: 15px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-        }
-        
-        .mobile-nav .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: white;
-            display: flex;
-            align-items: center;
-        }
-        
-        .mobile-nav .logo i {
-            margin-right: 10px;
-        }
-        
-        .nav-toggle {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            font-size: 1.8rem;
-            color: white;
-            background: transparent;
-            border: none;
-            cursor: pointer;
-        }
-        
-        .mobile-menu {
-            display: none;
-            background: var(--white);
-            position: absolute;
-            top: 100%;
-            left: 0;
-            width: 100%;
-            padding: 20px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        
-        .mobile-menu.active {
-            display: block;
-        }
-        
-        .mobile-menu a {
-            display: block;
-            padding: 12px 0;
-            text-decoration: none;
-            color: var(--primary);
-            font-weight: 600;
-            font-size: 1.1rem;
-            border-bottom: 1px solid #eee;
-        }
-        
-        .mobile-menu a:last-child {
-            border-bottom: none;
-        }
-        
+        /* Header Section */
         .header {
             background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            height: 100vh;
+            height: var(--section-height);
             min-height: 600px;
             position: relative;
             text-align: center;
@@ -129,19 +67,30 @@
         }
         
         .school-name {
-            font-size: 2.8rem;
+            font-size: 3.5rem;
             font-weight: 800;
             margin-bottom: 15px;
             text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
             letter-spacing: -1px;
+            background: linear-gradient(45deg, #ff9a9e, #fad0c4, #fad0c4, #a1c4fd);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradient 5s ease infinite;
+            background-size: 300% 300%;
+        }
+        
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
         
         .affiliation-badge {
             background: rgba(255, 255, 255, 0.9);
             color: var(--primary);
-            padding: 12px 25px;
+            padding: 15px 30px;
             border-radius: 50px;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             font-weight: 700;
             display: inline-block;
             margin: 20px 0;
@@ -150,15 +99,15 @@
         }
         
         .cbse-logo {
-            width: 40px;
-            height: 40px;
+            width: 50px;
+            height: 50px;
             background: var(--white);
             border-radius: 50%;
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            margin-right: 10px;
-            font-size: 1.5rem;
+            margin-right: 15px;
+            font-size: 1.8rem;
             color: var(--primary);
             box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
@@ -180,28 +129,60 @@
             60% {transform: translateY(-10px) translateX(-50%);}
         }
         
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 60px 20px;
+        /* Main Sections */
+        .section {
+            min-height: var(--section-height);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 60px 30px;
+            position: relative;
+            overflow: hidden;
         }
         
-        .section {
-            background: var(--white);
+        .section-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* About Section */
+        #about {
+            background: linear-gradient(135deg, #00cdac 0%, #02aab0 100%);
+            color: white;
+        }
+        
+        /* Location Section */
+        #location {
+            background: linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%);
+            color: white;
+        }
+        
+        /* Payment Section */
+        #payment {
+            background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);
+            color: white;
+        }
+        
+        .section-card {
+            background: rgba(255, 255, 255, 0.9);
             border-radius: 20px;
-            padding: 30px;
-            margin-bottom: 40px;
+            padding: 40px;
             box-shadow: var(--shadow);
             position: relative;
             overflow: hidden;
             transition: transform 0.3s ease;
+            max-width: 1000px;
+            margin: 0 auto;
         }
         
-        .section:hover {
+        .section-card:hover {
             transform: translateY(-5px);
         }
         
-        .section::before {
+        .section-card::before {
             content: "";
             position: absolute;
             top: 0;
@@ -217,25 +198,29 @@
         }
         
         h1 {
-            font-size: 2.5rem;
+            font-size: 3.2rem;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
         }
         
         h2 {
-            font-size: 2rem;
+            font-size: 2.8rem;
             position: relative;
             padding-bottom: 15px;
             margin-top: 0;
+            text-align: center;
+            color: white;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
         }
         
         h2::after {
             content: "";
             position: absolute;
             bottom: 0;
-            left: 0;
-            width: 80px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
             height: 4px;
-            background: linear-gradient(to right, var(--primary), var(--secondary));
+            background: white;
             border-radius: 2px;
         }
         
@@ -246,24 +231,25 @@
         }
         
         .highlight {
-            background: linear-gradient(120deg, rgba(110, 72, 170, 0.1) 0%, rgba(157, 80, 187, 0.1) 100%);
-            padding: 25px;
+            background: linear-gradient(120deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.2) 100%);
+            padding: 30px;
             border-radius: 15px;
-            margin: 25px 0;
-            border-left: 4px solid var(--primary);
+            margin: 30px 0;
+            border-left: 4px solid white;
+            color: white;
         }
         
         .features {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            margin-top: 35px;
+            gap: 30px;
+            margin-top: 40px;
         }
         
         .feature-card {
-            background: var(--white);
+            background: rgba(255, 255, 255, 0.95);
             border-radius: 15px;
-            padding: 25px;
+            padding: 30px;
             text-align: center;
             box-shadow: var(--shadow);
             transition: all 0.3s ease;
@@ -276,18 +262,18 @@
         }
         
         .feature-icon {
-            font-size: 3rem;
+            font-size: 3.5rem;
             color: var(--primary);
             margin-bottom: 20px;
         }
         
         .feature-card h3 {
-            font-size: 1.6rem;
+            font-size: 1.8rem;
             margin-bottom: 15px;
         }
         
         .map-container {
-            margin: 35px 0;
+            margin: 40px 0;
             border-radius: 15px;
             overflow: hidden;
             box-shadow: 0 12px 30px rgba(0,0,0,0.15);
@@ -298,33 +284,33 @@
             width: 100%;
             height: 100%;
             border: none;
+            border-radius: 15px;
         }
         
         .payment-section {
             display: flex;
-            flex-direction: column;
-            gap: 30px;
+            flex-wrap: wrap;
+            gap: 40px;
             align-items: center;
-            margin: 35px 0;
+            margin: 40px 0;
         }
         
         .payment-info {
-            width: 100%;
+            flex: 1;
+            min-width: 300px;
         }
         
         .qr-code {
             text-align: center;
             padding: 20px;
-            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
+            background: rgba(255, 255, 255, 0.3);
             border-radius: 15px;
             box-shadow: var(--shadow);
-            width: 100%;
-            max-width: 300px;
         }
         
         .qr-code img {
-            width: 180px;
-            height: 180px;
+            width: 200px;
+            height: 200px;
             border: 2px dashed var(--primary);
             padding: 15px;
             background: var(--white);
@@ -335,15 +321,14 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 100%;
-            max-width: 300px;
-            margin: 25px auto;
+            width: 280px;
+            margin: 30px auto;
             padding: 16px;
             background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
             color: white;
             border: none;
             border-radius: 50px;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             font-weight: 600;
             cursor: pointer;
             text-align: center;
@@ -359,14 +344,19 @@
         
         .login-btn i {
             margin-right: 10px;
-            font-size: 1.3rem;
+            font-size: 1.4rem;
         }
         
+        /* Footer */
         .footer {
             background: linear-gradient(135deg, var(--accent) 0%, #4b6584 100%);
             color: white;
-            padding: 60px 20px 25px;
+            min-height: var(--section-height);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
             position: relative;
+            padding: 70px 20px 30px;
         }
         
         .footer::before {
@@ -386,13 +376,13 @@
             margin: 0 auto;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 35px;
+            gap: 40px;
         }
         
         .footer-section h3 {
             color: white;
-            font-size: 1.6rem;
-            margin-bottom: 20px;
+            font-size: 1.8rem;
+            margin-bottom: 25px;
             position: relative;
             padding-bottom: 10px;
         }
@@ -410,27 +400,27 @@
         .contact-info p {
             display: flex;
             align-items: center;
-            margin: 18px 0;
+            margin: 20px 0;
             color: #e0e0e0;
-            font-size: 1rem;
+            font-size: 1.1rem;
         }
         
         .contact-info i {
-            margin-right: 12px;
-            font-size: 1.2rem;
+            margin-right: 15px;
+            font-size: 1.4rem;
             color: var(--secondary);
             min-width: 25px;
         }
         
         .admin-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 15px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
         }
         
         .admin-card {
             background: rgba(255, 255, 255, 0.08);
-            padding: 18px;
+            padding: 20px;
             border-radius: 10px;
             text-align: center;
             transition: all 0.3s ease;
@@ -442,20 +432,48 @@
         }
         
         .admin-card h4 {
-            font-size: 1.2rem;
-            margin-bottom: 8px;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
             color: var(--secondary);
         }
         
         .copyright {
             text-align: center;
-            padding-top: 35px;
-            margin-top: 35px;
+            padding-top: 40px;
+            margin-top: 40px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             color: #bbb;
-            font-size: 0.9rem;
+            font-size: 1rem;
         }
         
+        /* Navigation */
+        .nav-dots {
+            position: fixed;
+            right: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .dot {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            border: 2px solid white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .dot.active {
+            background: white;
+            transform: scale(1.3);
+        }
+        
+        /* Modal */
         .modal {
             display: none;
             position: fixed;
@@ -472,7 +490,7 @@
         .modal-content {
             background-color: var(--white);
             margin: 10% auto;
-            padding: 30px;
+            padding: 40px;
             border: none;
             width: 90%;
             max-width: 500px;
@@ -490,9 +508,9 @@
         .close {
             color: #aaa;
             position: absolute;
-            top: 15px;
-            right: 20px;
-            font-size: 28px;
+            top: 20px;
+            right: 25px;
+            font-size: 32px;
             font-weight: bold;
             cursor: pointer;
             transition: color 0.3s;
@@ -503,15 +521,15 @@
         }
         
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
         
         .form-group label {
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             font-weight: 600;
             color: var(--primary);
-            font-size: 1rem;
+            font-size: 1.1rem;
         }
         
         .form-group input {
@@ -534,7 +552,7 @@
             width: 100%;
             background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
             color: white;
-            padding: 14px;
+            padding: 16px;
             border: none;
             border-radius: 50px;
             cursor: pointer;
@@ -549,20 +567,10 @@
             box-shadow: 0 8px 20px rgba(110, 72, 170, 0.6);
         }
         
-        /* Mobile-specific optimizations */
+        /* Mobile Responsiveness */
         @media (max-width: 768px) {
-            .mobile-nav {
-                display: block;
-            }
-            
-            .header {
-                height: 90vh;
-                min-height: 500px;
-                padding-top: 70px;
-            }
-            
             .school-name {
-                font-size: 2.2rem;
+                font-size: 2.5rem;
             }
             
             .affiliation-badge {
@@ -570,40 +578,60 @@
                 padding: 10px 20px;
             }
             
-            .cbse-logo {
-                width: 35px;
-                height: 35px;
-                font-size: 1.3rem;
+            .section {
+                padding: 40px 20px;
+            }
+            
+            .section-card {
+                padding: 25px;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            .features {
+                grid-template-columns: 1fr;
+            }
+            
+            .payment-section {
+                flex-direction: column;
+            }
+            
+            .login-btn {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .nav-dots {
+                right: 15px;
+            }
+            
+            .map-container {
+                height: 300px;
+            }
+            
+            .qr-code img {
+                width: 180px;
+                height: 180px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .school-name {
+                font-size: 2rem;
+            }
+            
+            .section {
+                padding: 30px 15px;
             }
             
             h2 {
                 font-size: 1.8rem;
             }
             
-            .section {
-                padding: 25px 20px;
-            }
-            
-            .highlight {
+            .section-card {
                 padding: 20px;
-            }
-            
-            .map-container {
-                height: 300px;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .school-name {
-                font-size: 1.8rem;
-            }
-            
-            .header {
-                min-height: 450px;
-            }
-            
-            .features {
-                grid-template-columns: 1fr;
             }
             
             .feature-card {
@@ -611,47 +639,23 @@
             }
             
             .feature-icon {
-                font-size: 2.5rem;
-            }
-            
-            .feature-card h3 {
-                font-size: 1.4rem;
-            }
-            
-            .footer-content {
-                grid-template-columns: 1fr;
-            }
-            
-            .admin-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .modal-content {
-                padding: 25px 20px;
+                font-size: 2.8rem;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Mobile Navigation -->
-    <nav class="mobile-nav">
-        <div class="logo">
-            <i class="fas fa-school"></i>
-            Saint Momina
-        </div>
-        <button class="nav-toggle" id="navToggle">
-            <i class="fas fa-bars"></i>
-        </button>
-        <div class="mobile-menu" id="mobileMenu">
-            <a href="#about"><i class="fas fa-info-circle"></i> About Us</a>
-            <a href="#location"><i class="fas fa-map-marker-alt"></i> Location</a>
-            <a href="#payment"><i class="fas fa-money-bill-wave"></i> Fee Payment</a>
-            <a href="#contact"><i class="fas fa-phone-alt"></i> Contact</a>
-        </div>
-    </nav>
+    <!-- Navigation Dots -->
+    <div class="nav-dots">
+        <div class="dot active" data-target="header"></div>
+        <div class="dot" data-target="about"></div>
+        <div class="dot" data-target="location"></div>
+        <div class="dot" data-target="payment"></div>
+        <div class="dot" data-target="footer"></div>
+    </div>
     
     <!-- Header Section -->
-    <header class="header">
+    <header class="header" id="header">
         <div class="header-content">
             <div class="school-name">Saint Momina School</div>
             
@@ -662,7 +666,7 @@
                 Affiliated to CBSE New Delhi
             </div>
             
-            <p style="max-width: 700px; margin: 0 auto 30px; font-size: 1.1rem; text-shadow: 0 1px 3px rgba(0,0,0,0.3);">
+            <p style="max-width: 700px; margin: 0 auto 30px; font-size: 1.2rem; text-shadow: 0 1px 3px rgba(0,0,0,0.3);">
                 Jainpur, Meerut Road - Providing quality education with modern facilities and a nurturing environment
             </p>
             
@@ -676,136 +680,163 @@
         </div>
     </header>
     
-    <!-- Main Content -->
-    <div class="container">
-        <!-- About Section -->
-        <section id="about" class="section">
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="section-content">
             <h2>About Our Prestigious Institution</h2>
             
-            <div class="highlight">
-                <p style="font-size: 1.2rem; font-weight: 500; text-align: center;">
-                    <i class="fas fa-quote-left" style="color: var(--primary); margin-right: 10px;"></i>
-                    Saint Momina School is recognized by the Central Board of Secondary Education (CBSE), New Delhi, 
-                    ensuring our students receive a nationally standardized education of the highest quality.
-                    <i class="fas fa-quote-right" style="color: var(--primary); margin-left: 10px;"></i>
-                </p>
-            </div>
-            
-            <p>Saint Momina School in Jainpur (Meerut Road) is a premier educational institution committed to excellence in academics, sports, and character development. Our state-of-the-art facilities and dedicated staff provide a nurturing environment where students can thrive and reach their full potential.</p>
-            
-            <p>As a CBSE-affiliated institution, we follow a comprehensive curriculum that balances academic rigor with creative and physical development, preparing our students to excel in all competitive examinations and life challenges.</p>
-            
-            <h3>Why Choose Saint Momina?</h3>
-            
-            <div class="features">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-book"></i>
-                    </div>
-                    <h3>CBSE Curriculum</h3>
-                    <p>Nationally recognized curriculum with focus on conceptual understanding and application-based learning</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-flask"></i>
-                    </div>
-                    <h3>Modern Labs</h3>
-                    <p>Fully equipped science, computer, and language labs for practical, hands-on learning</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-medal"></i>
-                    </div>
-                    <h3>Sports Excellence</h3>
-                    <p>Olympic-standard facilities with coaching in cricket, basketball, athletics and more</p>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Location Section -->
-        <section id="location" class="section">
-            <h2>Our Campus Location</h2>
-            <p>Our sprawling campus is located in the peaceful surroundings of Jainpur, easily accessible from Meerut Road. The campus features modern classrooms, lush green spaces, and state-of-the-art facilities designed to inspire learning.</p>
-            
-            <div class="map-container">
-                <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3507.198713780667!2d77.81242181147911!3d28.473561675650824!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ca394a643777f%3A0x55908d9065d3e268!2sSaint%20Momina%20School%20Jainpur!5e0!3m2!1sen!2sin!4v1755437697134!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
-        </section>
-        
-        <!-- Payment Section -->
-        <section id="payment" class="section">
-            <h2>Fee Payment Portal</h2>
-            
-            <div class="payment-section">
-                <div class="payment-info">
-                    <p>Pay your school fees conveniently through our secure online payment system. As a CBSE-affiliated institution, we maintain complete transparency in our fee structure.</p>
-                    
-                    <div style="background: #f8f9fa; padding: 20px; border-radius: 10px; margin: 20px 0;">
-                        <h3>Fee Payment Instructions</h3>
-                        <ul style="padding-left: 20px; margin-top: 15px;">
-                            <li>Scan the QR code with any UPI payment app</li>
-                            <li>Enter the exact amount as per fee statement</li>
-                            <li>Use student admission number as payment note</li>
-                            <li>Keep transaction ID for future reference</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="qr-code">
-                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://example.com/payment/saint-momina&bgcolor=F0F8FF&color=6E48AA" alt="QR Code for Fee Payment">
-                    <p style="font-size: 1.1rem; margin-top: 15px; color: var(--primary); font-weight: 600;">Scan to Pay School Fees</p>
-                </div>
-            </div>
-            
-            <button class="login-btn" id="loginBtn">
-                <i class="fas fa-user-graduate"></i> Student Login Portal
-            </button>
-        </section>
-    </div>
-    
-    <!-- Footer -->
-    <footer id="contact" class="footer">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>Contact Us</h3>
-                <div class="contact-info">
-                    <p><i class="fas fa-map-marker-alt"></i> Jainpur, Meerut Road, Uttar Pradesh 250001</p>
-                    <p><i class="fas fa-envelope"></i> saintmominajnp@gmail.com</p>
-                    <p><i class="fas fa-phone"></i> 08171989806</p>
-                    <p><i class="fas fa-clock"></i> Office Hours: 9:00 AM - 3:00 PM (Mon-Sat)</p>
-                </div>
-            </div>
-            
-            <div class="footer-section">
-                <h3>Administration</h3>
-                <div class="admin-grid">
-                    <div class="admin-card">
-                        <h4>Chairman</h4>
-                        <p>Mr. Shah Faisal</p>
-                    </div>
-                    <div class="admin-card">
-                        <h4>Principal</h4>
-                        <p>Mr. Ajeet Sisodia</p>
-                    </div>
-                    <div class="admin-card">
-                        <h4>Vice Principal</h4>
-                        <p>Mrs. Tanuja Chaudhary</p>
-                    </div>
-                </div>
-                
-                <div style="background: rgba(255,255,255,0.1); padding: 15px; border-radius: 10px; margin-top: 20px; text-align: center;">
-                    <p style="font-size: 1.1rem; font-weight: 600;">
-                        <i class="fas fa-certificate" style="color: var(--secondary); margin-right: 10px;"></i>
-                        Affiliated to CBSE New Delhi
+            <div class="section-card">
+                <div class="highlight">
+                    <p style="font-size: 1.3rem; font-weight: 500; text-align: center;">
+                        <i class="fas fa-quote-left" style="color: #02aab0; margin-right: 10px;"></i>
+                        Saint Momina School is recognized by the Central Board of Secondary Education (CBSE), New Delhi, 
+                        ensuring our students receive a nationally standardized education of the highest quality.
+                        <i class="fas fa-quote-right" style="color: #02aab0; margin-left: 10px;"></i>
                     </p>
+                </div>
+                
+                <p>Saint Momina School in Jainpur (Meerut Road) is a premier educational institution committed to excellence in academics, sports, and character development. Our state-of-the-art facilities and dedicated staff provide a nurturing environment where students can thrive and reach their full potential.</p>
+                
+                <p>As a CBSE-affiliated institution, we follow a comprehensive curriculum that balances academic rigor with creative and physical development, preparing our students to excel in all competitive examinations and life challenges.</p>
+                
+                <h3 style="color: #02aab0; text-align: center; margin-top: 30px;">Why Choose Saint Momina?</h3>
+                
+                <div class="features">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-book" style="color: #02aab0;"></i>
+                        </div>
+                        <h3 style="color: #02aab0;">CBSE Curriculum</h3>
+                        <p>Nationally recognized curriculum with focus on conceptual understanding and application-based learning</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-flask" style="color: #02aab0;"></i>
+                        </div>
+                        <h3 style="color: #02aab0;">Modern Labs</h3>
+                        <p>Fully equipped science, computer, and language labs for practical, hands-on learning</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-medal" style="color: #02aab0;"></i>
+                        </div>
+                        <h3 style="color: #02aab0;">Sports Excellence</h3>
+                        <p>Olympic-standard facilities with coaching in cricket, basketball, athletics and more</p>
+                    </div>
                 </div>
             </div>
         </div>
-        
-        <div class="copyright">
-            <p>&copy; 2023-2025 Saint Momina School, Jainpur (Meerut Road). All rights reserved.</p>
+    </section>
+    
+    <!-- Location Section -->
+    <section id="location" class="section">
+        <div class="section-content">
+            <h2>Our Campus Location</h2>
+            
+            <div class="section-card">
+                <p>Our sprawling 5-acre campus is located in the peaceful surroundings of Jainpur, easily accessible from Meerut Road. The campus features modern classrooms, lush green spaces, and state-of-the-art facilities designed to inspire learning.</p>
+                
+                <div class="map-container">
+                    <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3507.198713780667!2d77.81242181147911!3d28.473561675650824!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ca394a643777f%3A0x55908d9065d3e268!2sSaint%20Momina%20School%20Jainpur!5e0!3m2!1sen!2sin!4v1755437697134!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                
+                <div class="highlight">
+                    <h3 style="color: #ff758c; text-align: center;">Campus Features</h3>
+                    <ul style="padding-left: 20px; margin-top: 15px;">
+                        <li>Modern, air-conditioned classrooms with smart boards</li>
+                        <li>Extensive library with over 10,000 books</li>
+                        <li>Indoor and outdoor sports facilities</li>
+                        <li>Science and computer laboratories</li>
+                        <li>Auditorium with 500-seat capacity</li>
+                        <li>Cafeteria serving nutritious meals</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Payment Section -->
+    <section id="payment" class="section">
+        <div class="section-content">
+            <h2>Fee Payment Portal</h2>
+            
+            <div class="section-card">
+                <div class="payment-section">
+                    <div class="payment-info">
+                        <p>Pay your school fees conveniently through our secure online payment system. As a CBSE-affiliated institution, we maintain complete transparency in our fee structure.</p>
+                        
+                        <div class="highlight">
+                            <h3 style="color: #a18cd1; text-align: center;">Fee Payment Instructions</h3>
+                            <ul style="padding-left: 20px; margin-top: 15px;">
+                                <li>Scan the QR code with any UPI payment app</li>
+                                <li>Enter the exact amount as per fee statement</li>
+                                <li>Use student admission number as payment note</li>
+                                <li>Keep transaction ID for future reference</li>
+                                <li>Fees can also be paid at the school office</li>
+                                <li>Contact accounts department for any queries</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="qr-code">
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://example.com/payment/saint-momina&bgcolor=F0F8FF&color=6E48AA" alt="QR Code for Fee Payment">
+                        <p style="font-size: 1.1rem; margin-top: 15px; color: var(--primary); font-weight: 600;">Scan to Pay School Fees</p>
+                    </div>
+                </div>
+                
+                <button class="login-btn" id="loginBtn">
+                    <i class="fas fa-user-graduate"></i> Student Login Portal
+                </button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer" id="footer">
+        <div class="section-content">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i> Jainpur, Meerut Road, Uttar Pradesh 250001</p>
+                        <p><i class="fas fa-envelope"></i> saintmominajpn@gmail.com</p>
+                        <p><i class="fas fa-phone"></i> 8171989806</p>
+                        <p><i class="fas fa-clock"></i> Office Hours: 8:00 AM - 4:00 PM (Mon-Sat)</p>
+                        <p><i class="fas fa-bus"></i> School Transport Available</p>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Administration</h3>
+                    <div class="admin-grid">
+                        <div class="admin-card">
+                            <h4>Chairman</h4>
+                            <p>Mr. Shah Faisal</p>
+                        </div>
+                        <div class="admin-card">
+                            <h4>Principal</h4>
+                            <p>Mr. Ajeet Sisodia</p>
+                        </div>
+                        <div class="admin-card">
+                            <h4>Vice Principal</h4>
+                            <p>Mrs. Tanuja Chaudhary</p>
+                        </div>
+                    </div>
+                    
+                    <div style="background: rgba(255,255,255,0.1); padding: 15px; border-radius: 10px; margin-top: 20px; text-align: center;">
+                        <p style="font-size: 1.1rem; font-weight: 600;">
+                            <i class="fas fa-certificate" style="color: var(--secondary); margin-right: 10px;"></i>
+                            Affiliated to CBSE New Delhi
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023-2025 Saint Momina School, Jainpur (Meerut Road). All rights reserved.</p>
+            </div>
         </div>
     </footer>
     
@@ -813,7 +844,7 @@
     <div id="loginModal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
-            <h2>Student Login Portal</h2>
+            <h2 style="color: var(--primary);">Student Login Portal</h2>
             <form id="loginForm">
                 <div class="form-group">
                     <label for="admissionNo">Admission Number:</label>
@@ -841,21 +872,6 @@
     </div>
     
     <script>
-        // Mobile navigation toggle
-        const navToggle = document.getElementById('navToggle');
-        const mobileMenu = document.getElementById('mobileMenu');
-        
-        navToggle.addEventListener('click', () => {
-            mobileMenu.classList.toggle('active');
-        });
-        
-        // Close mobile menu when clicking a link
-        document.querySelectorAll('.mobile-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.remove('active');
-            });
-        });
-        
         // Modal functionality
         const modal = document.getElementById("loginModal");
         const btn = document.getElementById("loginBtn");
@@ -897,6 +913,57 @@
                 });
             });
         });
+        
+        // Navigation dots functionality
+        const dots = document.querySelectorAll('.dot');
+        const sections = document.querySelectorAll('.section, .header, .footer');
+        
+        // Update active dot on scroll
+        window.addEventListener('scroll', () => {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (pageYOffset >= (sectionTop - sectionHeight / 3)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            dots.forEach(dot => {
+                dot.classList.remove('active');
+                if (dot.getAttribute('data-target') === current) {
+                    dot.classList.add('active');
+                }
+            });
+        });
+        
+        // Dot click navigation
+        dots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                const target = dot.getAttribute('data-target');
+                document.getElementById(target).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Header animation
+        const headerText = document.querySelector('.school-name');
+        setInterval(() => {
+            headerText.style.background = `linear-gradient(45deg, ${getRandomColor()}, ${getRandomColor()}, ${getRandomColor()}, ${getRandomColor()})`;
+            headerText.style.backgroundSize = '300% 300%';
+        }, 5000);
+        
+        function getRandomColor() {
+            const letters = '0123456789ABCDEF';
+            let color = '#';
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
     </script>
 </body>
 </html>
