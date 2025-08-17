@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -1012,7 +1011,7 @@
             
             <div class="copyright">
                 <p>&copy; 2023-2025 Saint Momina School, Jainpur (Meerut Road). All rights reserved.</p>
-                <p style="margin-top: 10px;">Affiliated with CBSE New Delhi | School Code: UP12345</p>
+                <p style="margin-top: 10px;">Affiliated with CBSE New Delhi </p>
             </div>
         </div>
     </footer>
@@ -1107,7 +1106,7 @@
             const studentName = document.getElementById("studentName").value;
             const className = document.getElementById("className").value;
             
-            if (!admissionNo || admissionNo.length < 5) {
+            if (!admissionNo || admissionNo.length < 2) {
                 document.getElementById("admissionError").style.display = 'block';
                 isValid = false;
             }
