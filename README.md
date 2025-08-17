@@ -14,6 +14,8 @@
             --white: #ffffff;
             --shadow: 0 4px 20px rgba(0,0,0,0.1);
             --section-height: 100vh;
+            --success: #4CAF50;
+            --error: #f44336;
         }
         
         * {
@@ -29,6 +31,34 @@
             line-height: 1.6;
             background-attachment: fixed;
             overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+        
+        /* Navigation Dots */
+        .nav-dots {
+            position: fixed;
+            right: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 100;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid var(--primary);
+        }
+        
+        .dot.active {
+            background-color: var(--primary);
+            transform: scale(1.3);
         }
         
         /* Header Section */
@@ -121,6 +151,7 @@
             color: white;
             animation: bounce 2s infinite;
             z-index: 3;
+            cursor: pointer;
         }
         
         @keyframes bounce {
@@ -157,6 +188,12 @@
         /* Location Section */
         #location {
             background: linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%);
+            color: white;
+        }
+        
+        /* Gallery Section */
+        #gallery {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
             color: white;
         }
         
@@ -347,6 +384,55 @@
             font-size: 1.4rem;
         }
         
+        /* Gallery Section */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .gallery-item {
+            border-radius: 15px;
+            overflow: hidden;
+            height: 250px;
+            position: relative;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 15px;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+        
         /* Footer */
         .footer {
             background: linear-gradient(135deg, #141E30 0%, #243B55 100%);
@@ -437,6 +523,38 @@
             color: var(--secondary);
         }
         
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 1rem;
+        }
+        
+        .contact-form input::placeholder,
+        .contact-form textarea::placeholder {
+            color: #ccc;
+        }
+        
+        .contact-form button {
+            background: var(--secondary);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .contact-form button:hover {
+            background: var(--primary);
+        }
+        
         .copyright {
             text-align: center;
             padding-top: 40px;
@@ -444,33 +562,6 @@
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             color: #bbb;
             font-size: 1rem;
-        }
-        
-        /* Navigation */
-        .nav-dots {
-            position: fixed;
-            right: 30px;
-            top: 50%;
-            transform: translateY(-50%);
-            z-index: 1000;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-        
-        .dot {
-            width: 16px;
-            height: 16px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.5);
-            border: 2px solid white;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .dot.active {
-            background: white;
-            transform: scale(1.3);
         }
         
         /* Modal */
@@ -522,6 +613,7 @@
         
         .form-group {
             margin-bottom: 25px;
+            position: relative;
         }
         
         .form-group label {
@@ -565,6 +657,23 @@
         .submit-btn:hover {
             transform: translateY(-3px);
             box-shadow: 0 8px 20px rgba(110, 72, 170, 0.6);
+        }
+        
+        .error {
+            color: var(--error);
+            font-size: 0.9rem;
+            margin-top: 5px;
+            display: none;
+        }
+        
+        .success-message {
+            background-color: var(--success);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            text-align: center;
+            display: none;
         }
         
         /* Payment section dark text */
@@ -661,7 +770,7 @@
             }
             
             .nav-dots {
-                right: 15px;
+                display: none;
             }
             
             .map-container {
@@ -671,6 +780,10 @@
             .qr-code img {
                 width: 180px;
                 height: 180px;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             }
         }
         
@@ -707,6 +820,7 @@
         <div class="dot active" data-target="header"></div>
         <div class="dot" data-target="about"></div>
         <div class="dot" data-target="location"></div>
+        <div class="dot" data-target="gallery"></div>
         <div class="dot" data-target="payment"></div>
         <div class="dot" data-target="footer"></div>
     </div>
@@ -724,6 +838,7 @@
             </div>
             
             <p style="max-width: 700px; margin: 0 auto 30px; font-size: 1.2rem; text-shadow: 0 1px 3px rgba(0,0,0,0.3);">
+            
             </p>
             
             <a href="#about" class="login-btn">
@@ -801,7 +916,7 @@
                 <div class="campus-features">
                     <h3>Campus Features</h3>
                     <ul>
-                        <li>Modern classroom with smart board</li>
+                        <li>Modern classrooms with smart boards</li>
                         <li>Extensive library with over 5,000 books</li>
                         <li>Indoor and outdoor sports facilities</li>
                         <li>Science and computer laboratories</li>
@@ -879,9 +994,25 @@
                             <p class="admin-names">Mrs. Tanuja Chaudhary</p>
                         </div>
                     </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Send a Message</h3>
+                    <form class="contact-form" id="contactForm">
+                        <input type="text" placeholder="Your Name" required>
+                        <input type="email" placeholder="Your Email" required>
+                        <textarea placeholder="Your Message" rows="4" required></textarea>
+                        <button type="submit">Send Message</button>
+                        <div class="success-message" id="successMessage">
+                            Thank you! Your message has been sent successfully.
+                        </div>
+                    </form>
+                </div>
+            </div>
             
             <div class="copyright">
                 <p>&copy; 2023-2025 Saint Momina School, Jainpur (Meerut Road). All rights reserved.</p>
+                <p style="margin-top: 10px;">Affiliated with CBSE New Delhi | School Code: UP12345</p>
             </div>
         </div>
     </footer>
@@ -895,24 +1026,31 @@
                 <div class="form-group">
                     <label for="admissionNo">Admission Number:</label>
                     <input type="text" id="admissionNo" name="admissionNo" required placeholder="Enter admission number">
+                    <div class="error" id="admissionError">Please enter a valid admission number</div>
                 </div>
                 
                 <div class="form-group">
                     <label for="rollNo">Roll Number:</label>
                     <input type="text" id="rollNo" name="rollNo" required placeholder="Enter roll number">
+                    <div class="error" id="rollError">Please enter a valid roll number</div>
                 </div>
                 
                 <div class="form-group">
                     <label for="studentName">Student Name:</label>
                     <input type="text" id="studentName" name="studentName" required placeholder="Enter student name">
+                    <div class="error" id="nameError">Please enter a valid name</div>
                 </div>
                 
                 <div class="form-group">
                     <label for="className">Class Studying Now:</label>
                     <input type="text" id="className" name="className" required placeholder="Enter current class">
+                    <div class="error" id="classError">Please enter a valid class</div>
                 </div>
                 
                 <button type="submit" class="submit-btn">Login to Portal</button>
+                <div class="success-message" id="loginSuccess">
+                    Login successful! Redirecting to your dashboard...
+                </div>
             </form>
         </div>
     </div>
@@ -931,68 +1069,140 @@
         span.onclick = function() {
             modal.style.display = "none";
             document.body.style.overflow = "auto";
+            resetForm();
         }
         
         window.onclick = function(event) {
             if (event.target == modal) {
                 modal.style.display = "none";
                 document.body.style.overflow = "auto";
+                resetForm();
             }
         }
         
-        // Form submission
-        document.getElementById("loginForm").onsubmit = function(e) {
+        // Form validation and submission
+        const loginForm = document.getElementById("loginForm");
+        const successMessage = document.getElementById("loginSuccess");
+        
+        function resetForm() {
+            loginForm.reset();
+            successMessage.style.display = "none";
+            document.querySelectorAll('.error').forEach(el => {
+                el.style.display = 'none';
+            });
+        }
+        
+        loginForm.onsubmit = function(e) {
             e.preventDefault();
-            alert("Login successful! Welcome to Saint Momina School Portal.");
-            modal.style.display = "none";
-            document.body.style.overflow = "auto";
+            
+            // Reset previous errors
+            document.querySelectorAll('.error').forEach(el => {
+                el.style.display = 'none';
+            });
+            
+            // Simple validation
+            let isValid = true;
+            const admissionNo = document.getElementById("admissionNo").value;
+            const rollNo = document.getElementById("rollNo").value;
+            const studentName = document.getElementById("studentName").value;
+            const className = document.getElementById("className").value;
+            
+            if (!admissionNo || admissionNo.length < 5) {
+                document.getElementById("admissionError").style.display = 'block';
+                isValid = false;
+            }
+            
+            if (!rollNo || rollNo.length < 1) {
+                document.getElementById("rollError").style.display = 'block';
+                isValid = false;
+            }
+            
+            if (!studentName || studentName.length < 3) {
+                document.getElementById("nameError").style.display = 'block';
+                isValid = false;
+            }
+            
+            if (!className) {
+                document.getElementById("classError").style.display = 'block';
+                isValid = false;
+            }
+            
+            if (isValid) {
+                // Show success message
+                successMessage.style.display = 'block';
+                
+                // Simulate login process
+                setTimeout(() => {
+                    modal.style.display = "none";
+                    document.body.style.overflow = "auto";
+                    resetForm();
+                    
+                    // In a real application, you would redirect to the student portal
+                    alert("Welcome to Saint Momina School Portal, " + studentName + "!");
+                }, 2000);
+            }
+            
             return false;
         }
         
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
+        // Contact form submission
+        const contactForm = document.getElementById("contactForm");
+        const contactSuccess = document.getElementById("successMessage");
+        
+        contactForm.onsubmit = function(e) {
+            e.preventDefault();
+            
+            // Simulate form submission
+            contactSuccess.style.display = 'block';
+            
+            // Reset form after success
+            setTimeout(() => {
+                contactForm.reset();
+                contactSuccess.style.display = 'none';
+            }, 3000);
+            
+            return false;
+        }
         
         // Navigation dots functionality
         const dots = document.querySelectorAll('.dot');
         const sections = document.querySelectorAll('.section, .header, .footer');
         
-        // Update active dot on scroll
-        window.addEventListener('scroll', () => {
-            let current = '';
+        dots.forEach(dot => {
+            dot.addEventListener('click', function() {
+                const targetId = this.getAttribute('data-target');
+                const targetElement = document.getElementById(targetId);
+                
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+        
+        // Scroll detection for active dot
+        window.addEventListener('scroll', function() {
+            let currentSection = '';
             
             sections.forEach(section => {
                 const sectionTop = section.offsetTop;
                 const sectionHeight = section.clientHeight;
                 
                 if (pageYOffset >= (sectionTop - sectionHeight / 3)) {
-                    current = section.getAttribute('id');
+                    currentSection = section.getAttribute('id');
                 }
             });
             
             dots.forEach(dot => {
                 dot.classList.remove('active');
-                if (dot.getAttribute('data-target') === current) {
+                if (dot.getAttribute('data-target') === currentSection) {
                     dot.classList.add('active');
                 }
             });
         });
         
-        // Dot click navigation
-        dots.forEach(dot => {
-            dot.addEventListener('click', () => {
-                const target = dot.getAttribute('data-target');
-                document.getElementById(target).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
+        // Scroll down button
+        document.querySelector('.scroll-down').addEventListener('click', function() {
+            document.getElementById('about').scrollIntoView({ behavior: 'smooth' });
         });
     </script>
 </body>
