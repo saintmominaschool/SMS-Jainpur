@@ -727,7 +727,7 @@
         <!-- Location Section -->
         <section id="location" class="section">
             <h2>Our Campus Location</h2>
-            <p>Our sprawling 5-acre campus is located in the peaceful surroundings of Jainpur, easily accessible from Meerut Road. The campus features modern classrooms, lush green spaces, and state-of-the-art facilities designed to inspire learning.</p>
+            <p>Our sprawling campus is located in the peaceful surroundings of Jainpur, easily accessible from Meerut Road. The campus features modern classrooms, lush green spaces, and state-of-the-art facilities designed to inspire learning.</p>
             
             <div class="map-container">
                 <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3507.198713780667!2d77.81242181147911!3d28.473561675650824!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ca394a643777f%3A0x55908d9065d3e268!2sSaint%20Momina%20School%20Jainpur!5e0!3m2!1sen!2sin!4v1755437697134!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
