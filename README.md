@@ -692,7 +692,6 @@
             </div>
             
             <p style="max-width: 700px; margin: 0 auto 30px; font-size: 1.2rem; text-shadow: 0 1px 3px rgba(0,0,0,0.3);">
-                Jainpur, Meerut Road - Providing quality education with modern facilities and a nurturing environment
             </p>
             
             <a href="#about" class="login-btn">
