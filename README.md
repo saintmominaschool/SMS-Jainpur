@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -32,14 +33,13 @@
         
         /* Header Section */
         .header {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            background: linear-gradient(135deg, #6A11CB 0%, #2575FC 100%);
             height: var(--section-height);
             min-height: 600px;
             position: relative;
             text-align: center;
             color: white;
             overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -54,7 +54,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-
+            background: url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
             opacity: 0.15;
             z-index: 1;
         }
@@ -163,7 +163,7 @@
         /* Payment Section */
         #payment {
             background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);
-            color: blue;
+            color: white;
         }
         
         .section-card {
@@ -349,7 +349,7 @@
         
         /* Footer */
         .footer {
-            background: linear-gradient(135deg, var(--accent) 0%, #4b6584 100%);
+            background: linear-gradient(135deg, #141E30 0%, #243B55 100%);
             color: white;
             min-height: var(--section-height);
             display: flex;
@@ -567,6 +567,31 @@
             box-shadow: 0 8px 20px rgba(110, 72, 170, 0.6);
         }
         
+        /* Payment section dark text */
+        .payment-instructions {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 25px 0;
+            border-left: 4px solid #a18cd1;
+        }
+        
+        .payment-instructions h3 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .payment-instructions ul {
+            padding-left: 20px;
+            margin-top: 15px;
+        }
+        
+        .payment-instructions li {
+            margin-bottom: 10px;
+            color: #444;
+        }
+        
         /* Mobile Responsiveness */
         @media (max-width: 768px) {
             .school-name {
@@ -767,9 +792,9 @@
                     <div class="payment-info">
                         <p>Pay your school fees conveniently through our secure online payment system. As a CBSE-affiliated institution, we maintain complete transparency in our fee structure.</p>
                         
-                        <div class="highlight">
-                            <h3 style="color: #a18cd1; text-align: center;">Fee Payment Instructions</h3>
-                            <ul style="padding-left: 20px; margin-top: 15px;">
+                        <div class="payment-instructions">
+                            <h3>Fee Payment Instructions</h3>
+                            <ul>
                                 <li>Scan the QR code with any UPI payment app</li>
                                 <li>Enter the exact amount as per fee statement</li>
                                 <li>Use student admission number as payment note</li>
@@ -948,22 +973,6 @@
                 });
             });
         });
-        
-        // Header animation
-        const headerText = document.querySelector('.school-name');
-        setInterval(() => {
-            headerText.style.background = `linear-gradient(45deg, ${getRandomColor()}, ${getRandomColor()}, ${getRandomColor()}, ${getRandomColor()})`;
-            headerText.style.backgroundSize = '300% 300%';
-        }, 5000);
-        
-        function getRandomColor() {
-            const letters = '0123456789ABCDEF';
-            let color = '#';
-            for (let i = 0; i < 6; i++) {
-                color += letters[Math.floor(Math.random() * 16)];
-            }
-            return color;
-        }
     </script>
 </body>
 </html>
