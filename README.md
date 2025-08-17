@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -26,6 +27,71 @@
             color: #333;
             line-height: 1.6;
             background-attachment: fixed;
+        }
+        
+        /* Mobile Navigation */
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            z-index: 1000;
+            padding: 15px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        
+        .mobile-nav .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            display: flex;
+            align-items: center;
+        }
+        
+        .mobile-nav .logo i {
+            margin-right: 10px;
+        }
+        
+        .nav-toggle {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.8rem;
+            color: white;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .mobile-menu {
+            display: none;
+            background: var(--white);
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .mobile-menu.active {
+            display: block;
+        }
+        
+        .mobile-menu a {
+            display: block;
+            padding: 12px 0;
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 1.1rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .mobile-menu a:last-child {
+            border-bottom: none;
         }
         
         .header {
@@ -64,26 +130,19 @@
         }
         
         .school-name {
-            font-size: 4rem;
+            font-size: 2.8rem;
             font-weight: 800;
             margin-bottom: 15px;
             text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
             letter-spacing: -1px;
         }
         
-        .tagline {
-            font-size: 1.8rem;
-            font-weight: 300;
-            margin-bottom: 30px;
-            text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
-        }
-        
         .affiliation-badge {
             background: rgba(255, 255, 255, 0.9);
             color: var(--primary);
-            padding: 15px 30px;
+            padding: 12px 25px;
             border-radius: 50px;
-            font-size: 1.4rem;
+            font-size: 1.1rem;
             font-weight: 700;
             display: inline-block;
             margin: 20px 0;
@@ -92,15 +151,15 @@
         }
         
         .cbse-logo {
-            width: 50px;
-            height: 50px;
+            width: 40px;
+            height: 40px;
             background: var(--white);
             border-radius: 50%;
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            margin-right: 15px;
-            font-size: 1.8rem;
+            margin-right: 10px;
+            font-size: 1.5rem;
             color: var(--primary);
             box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
@@ -125,14 +184,14 @@
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 60px 30px;
+            padding: 60px 20px;
         }
         
         .section {
             background: var(--white);
             border-radius: 20px;
-            padding: 40px;
-            margin-bottom: 50px;
+            padding: 30px;
+            margin-bottom: 40px;
             box-shadow: var(--shadow);
             position: relative;
             overflow: hidden;
@@ -159,12 +218,12 @@
         }
         
         h1 {
-            font-size: 3.2rem;
+            font-size: 2.5rem;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
         }
         
         h2 {
-            font-size: 2.4rem;
+            font-size: 2rem;
             position: relative;
             padding-bottom: 15px;
             margin-top: 0;
@@ -189,23 +248,23 @@
         
         .highlight {
             background: linear-gradient(120deg, rgba(110, 72, 170, 0.1) 0%, rgba(157, 80, 187, 0.1) 100%);
-            padding: 30px;
+            padding: 25px;
             border-radius: 15px;
-            margin: 30px 0;
+            margin: 25px 0;
             border-left: 4px solid var(--primary);
         }
         
         .features {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 35px;
         }
         
         .feature-card {
             background: var(--white);
             border-radius: 15px;
-            padding: 30px;
+            padding: 25px;
             text-align: center;
             box-shadow: var(--shadow);
             transition: all 0.3s ease;
@@ -218,22 +277,22 @@
         }
         
         .feature-icon {
-            font-size: 3.5rem;
+            font-size: 3rem;
             color: var(--primary);
             margin-bottom: 20px;
         }
         
         .feature-card h3 {
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             margin-bottom: 15px;
         }
         
         .map-container {
-            margin: 40px 0;
+            margin: 35px 0;
             border-radius: 15px;
             overflow: hidden;
             box-shadow: 0 12px 30px rgba(0,0,0,0.15);
-            height: 500px;
+            height: 400px;
         }
         
         .map {
@@ -244,15 +303,14 @@
         
         .payment-section {
             display: flex;
-            flex-wrap: wrap;
-            gap: 40px;
+            flex-direction: column;
+            gap: 30px;
             align-items: center;
-            margin: 40px 0;
+            margin: 35px 0;
         }
         
         .payment-info {
-            flex: 1;
-            min-width: 300px;
+            width: 100%;
         }
         
         .qr-code {
@@ -261,11 +319,13 @@
             background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
             border-radius: 15px;
             box-shadow: var(--shadow);
+            width: 100%;
+            max-width: 300px;
         }
         
         .qr-code img {
-            width: 200px;
-            height: 200px;
+            width: 180px;
+            height: 180px;
             border: 2px dashed var(--primary);
             padding: 15px;
             background: var(--white);
@@ -276,14 +336,15 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 280px;
-            margin: 30px auto;
+            width: 100%;
+            max-width: 300px;
+            margin: 25px auto;
             padding: 16px;
             background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
             color: white;
             border: none;
             border-radius: 50px;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: 600;
             cursor: pointer;
             text-align: center;
@@ -299,13 +360,13 @@
         
         .login-btn i {
             margin-right: 10px;
-            font-size: 1.4rem;
+            font-size: 1.3rem;
         }
         
         .footer {
             background: linear-gradient(135deg, var(--accent) 0%, #4b6584 100%);
             color: white;
-            padding: 70px 20px 30px;
+            padding: 60px 20px 25px;
             position: relative;
         }
         
@@ -326,13 +387,13 @@
             margin: 0 auto;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
+            gap: 35px;
         }
         
         .footer-section h3 {
             color: white;
-            font-size: 1.8rem;
-            margin-bottom: 25px;
+            font-size: 1.6rem;
+            margin-bottom: 20px;
             position: relative;
             padding-bottom: 10px;
         }
@@ -350,27 +411,27 @@
         .contact-info p {
             display: flex;
             align-items: center;
-            margin: 20px 0;
+            margin: 18px 0;
             color: #e0e0e0;
-            font-size: 1.1rem;
+            font-size: 1rem;
         }
         
         .contact-info i {
-            margin-right: 15px;
-            font-size: 1.4rem;
+            margin-right: 12px;
+            font-size: 1.2rem;
             color: var(--secondary);
             min-width: 25px;
         }
         
         .admin-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
         }
         
         .admin-card {
             background: rgba(255, 255, 255, 0.08);
-            padding: 20px;
+            padding: 18px;
             border-radius: 10px;
             text-align: center;
             transition: all 0.3s ease;
@@ -382,18 +443,18 @@
         }
         
         .admin-card h4 {
-            font-size: 1.3rem;
-            margin-bottom: 10px;
+            font-size: 1.2rem;
+            margin-bottom: 8px;
             color: var(--secondary);
         }
         
         .copyright {
             text-align: center;
-            padding-top: 40px;
-            margin-top: 40px;
+            padding-top: 35px;
+            margin-top: 35px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             color: #bbb;
-            font-size: 1rem;
+            font-size: 0.9rem;
         }
         
         .modal {
@@ -412,7 +473,7 @@
         .modal-content {
             background-color: var(--white);
             margin: 10% auto;
-            padding: 40px;
+            padding: 30px;
             border: none;
             width: 90%;
             max-width: 500px;
@@ -430,9 +491,9 @@
         .close {
             color: #aaa;
             position: absolute;
-            top: 20px;
-            right: 25px;
-            font-size: 32px;
+            top: 15px;
+            right: 20px;
+            font-size: 28px;
             font-weight: bold;
             cursor: pointer;
             transition: color 0.3s;
@@ -443,15 +504,15 @@
         }
         
         .form-group {
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
         
         .form-group label {
             display: block;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             font-weight: 600;
             color: var(--primary);
-            font-size: 1.1rem;
+            font-size: 1rem;
         }
         
         .form-group input {
@@ -474,7 +535,7 @@
             width: 100%;
             background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
             color: white;
-            padding: 16px;
+            padding: 14px;
             border: none;
             border-radius: 50px;
             cursor: pointer;
@@ -489,39 +550,107 @@
             box-shadow: 0 8px 20px rgba(110, 72, 170, 0.6);
         }
         
+        /* Mobile-specific optimizations */
         @media (max-width: 768px) {
-            .school-name {
-                font-size: 3rem;
-            }
-            
-            .tagline {
-                font-size: 1.4rem;
-            }
-            
-            .affiliation-badge {
-                font-size: 1.1rem;
-                padding: 12px 25px;
+            .mobile-nav {
+                display: block;
             }
             
             .header {
-                height: 80vh;
+                height: 90vh;
+                min-height: 500px;
+                padding-top: 70px;
             }
             
-            h1 {
-                font-size: 2.5rem;
+            .school-name {
+                font-size: 2.2rem;
+            }
+            
+            .affiliation-badge {
+                font-size: 1rem;
+                padding: 10px 20px;
+            }
+            
+            .cbse-logo {
+                width: 35px;
+                height: 35px;
+                font-size: 1.3rem;
             }
             
             h2 {
-                font-size: 2rem;
+                font-size: 1.8rem;
             }
             
             .section {
-                padding: 30px 20px;
+                padding: 25px 20px;
+            }
+            
+            .highlight {
+                padding: 20px;
+            }
+            
+            .map-container {
+                height: 300px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .school-name {
+                font-size: 1.8rem;
+            }
+            
+            .header {
+                min-height: 450px;
+            }
+            
+            .features {
+                grid-template-columns: 1fr;
+            }
+            
+            .feature-card {
+                padding: 20px;
+            }
+            
+            .feature-icon {
+                font-size: 2.5rem;
+            }
+            
+            .feature-card h3 {
+                font-size: 1.4rem;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .admin-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .modal-content {
+                padding: 25px 20px;
             }
         }
     </style>
 </head>
 <body>
+    <!-- Mobile Navigation -->
+    <nav class="mobile-nav">
+        <div class="logo">
+            <i class="fas fa-school"></i>
+            Saint Momina
+        </div>
+        <button class="nav-toggle" id="navToggle">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="#about"><i class="fas fa-info-circle"></i> About Us</a>
+            <a href="#location"><i class="fas fa-map-marker-alt"></i> Location</a>
+            <a href="#payment"><i class="fas fa-money-bill-wave"></i> Fee Payment</a>
+            <a href="#contact"><i class="fas fa-phone-alt"></i> Contact</a>
+        </div>
+    </nav>
+    
     <!-- Header Section -->
     <header class="header">
         <div class="header-content">
@@ -534,7 +663,7 @@
                 Affiliated to CBSE New Delhi
             </div>
             
-            <p style="max-width: 700px; margin: 0 auto 30px; font-size: 1.2rem; text-shadow: 0 1px 3px rgba(0,0,0,0.3);">
+            <p style="max-width: 700px; margin: 0 auto 30px; font-size: 1.1rem; text-shadow: 0 1px 3px rgba(0,0,0,0.3);">
                 Jainpur, Meerut Road - Providing quality education with modern facilities and a nurturing environment
             </p>
             
@@ -555,7 +684,7 @@
             <h2>About Our Prestigious Institution</h2>
             
             <div class="highlight">
-                <p style="font-size: 1.3rem; font-weight: 500; text-align: center;">
+                <p style="font-size: 1.2rem; font-weight: 500; text-align: center;">
                     <i class="fas fa-quote-left" style="color: var(--primary); margin-right: 10px;"></i>
                     Saint Momina School is recognized by the Central Board of Secondary Education (CBSE), New Delhi, 
                     ensuring our students receive a nationally standardized education of the highest quality.
@@ -597,7 +726,7 @@
         </section>
         
         <!-- Location Section -->
-        <section class="section">
+        <section id="location" class="section">
             <h2>Our Campus Location</h2>
             <p>Our sprawling 5-acre campus is located in the peaceful surroundings of Jainpur, easily accessible from Meerut Road. The campus features modern classrooms, lush green spaces, and state-of-the-art facilities designed to inspire learning.</p>
             
@@ -607,7 +736,7 @@
         </section>
         
         <!-- Payment Section -->
-        <section class="section">
+        <section id="payment" class="section">
             <h2>Fee Payment Portal</h2>
             
             <div class="payment-section">
@@ -638,15 +767,15 @@
     </div>
     
     <!-- Footer -->
-    <footer class="footer">
+    <footer id="contact" class="footer">
         <div class="footer-content">
             <div class="footer-section">
                 <h3>Contact Us</h3>
                 <div class="contact-info">
                     <p><i class="fas fa-map-marker-alt"></i> Jainpur, Meerut Road, Uttar Pradesh 250001</p>
                     <p><i class="fas fa-envelope"></i> saintmominajnp@gmail.com</p>
-                    <p><i class="fas fa-phone"></i> 8171989806</p>
-                    <p><i class="fas fa-clock"></i> Office Hours: 8:00 AM - 4:00 PM (Mon-Sat)</p>
+                    <p><i class="fas fa-phone"></i> 08171989806</p>
+                    <p><i class="fas fa-clock"></i> Office Hours: 9:00 AM - 3:00 PM (Mon-Sat)</p>
                 </div>
             </div>
             
@@ -713,6 +842,21 @@
     </div>
     
     <script>
+        // Mobile navigation toggle
+        const navToggle = document.getElementById('navToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        navToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+            });
+        });
+        
         // Modal functionality
         const modal = document.getElementById("loginModal");
         const btn = document.getElementById("loginBtn");
