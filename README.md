@@ -791,7 +791,7 @@
             <h2>Our Campus Location</h2>
             
             <div class="section-card">
-                <p>Our sprawling 5-acre campus is located in the peaceful surroundings of Jainpur, easily accessible from Meerut Road. The campus features modern classrooms, lush green spaces, and state-of-the-art facilities designed to inspire learning.</p>
+                <p>Our sprawling campus is located in the peaceful surroundings of Jainpur on NH334 , easily accessible from Meerut Road. The campus features modern classrooms, lush green spaces, and state-of-the-art facilities designed to inspire learning.</p>
                 
                 <div class="map-container">
                     <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3507.198713780667!2d77.81242181147911!3d28.473561675650824!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ca394a643777f%3A0x55908d9065d3e268!2sSaint%20Momina%20School%20Jainpur!5e0!3m2!1sen!2sin!4v1755437697134!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -801,7 +801,7 @@
                     <h3>Campus Features</h3>
                     <ul>
                         <li>Modern classroom with smart boards</li>
-                        <li>Extensive library with over 10,000 books</li>
+                        <li>Extensive library with over 5,000 books</li>
                         <li>Indoor and outdoor sports facilities</li>
                         <li>Science and computer laboratories</li>
                         <li>Auditorium with 250-seat capacity</li>
@@ -956,5 +956,3 @@
                 document.querySelector(this.getAttribute('href')).scrollIntoView({
                     behavior: 'smooth'
     </script>
-</body>
-</html>
