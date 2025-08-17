@@ -53,6 +53,7 @@
             left: 0;
             width: 100%;
             height: 100%;
+            background: url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
             opacity: 0.15;
             z-index: 1;
         }
