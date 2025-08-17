@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -759,7 +758,7 @@
             <h2>Our Campus Location</h2>
             
             <div class="section-card">
-                <p>Our sprawling 5-acre campus is located in the peaceful surroundings of Jainpur, easily accessible from Meerut Road. The campus features modern classrooms, lush green spaces, and state-of-the-art facilities designed to inspire learning.</p>
+                <p>Our sprawling campus is located in the peaceful surroundings of Jainpur on NH334, easily accessible from Meerut Road. The campus features modern classrooms, lush green spaces, and state-of-the-art facilities designed to inspire learning.</p>
                 
                 <div class="map-container">
                     <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3507.198713780667!2d77.81242181147911!3d28.473561675650824!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ca394a643777f%3A0x55908d9065d3e268!2sSaint%20Momina%20School%20Jainpur!5e0!3m2!1sen!2sin!4v1755437697134!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -768,12 +767,11 @@
                 <div class="highlight">
                     <h3 style="color: #ff758c; text-align: center;">Campus Features</h3>
                     <ul style="padding-left: 20px; margin-top: 15px;">
-                        <li>Modern, air-conditioned classrooms with smart boards</li>
+                        <li>Modern classrooms with smart boards</li>
                         <li>Extensive library with over 10,000 books</li>
                         <li>Indoor and outdoor sports facilities</li>
                         <li>Science and computer laboratories</li>
-                        <li>Auditorium with 500-seat capacity</li>
-                        <li>Cafeteria serving nutritious meals</li>
+                        <li>Auditorium with 250-seat capacity</li>
                     </ul>
                 </div>
             </div>
@@ -824,9 +822,9 @@
                     <h3>Contact Us</h3>
                     <div class="contact-info">
                         <p><i class="fas fa-map-marker-alt"></i> Jainpur, Meerut Road, Uttar Pradesh 250001</p>
-                        <p><i class="fas fa-envelope"></i> saintmominajpn@gmail.com</p>
-                        <p><i class="fas fa-phone"></i> 8171989806</p>
-                        <p><i class="fas fa-clock"></i> Office Hours: 8:00 AM - 4:00 PM (Mon-Sat)</p>
+                        <p><i class="fas fa-envelope"></i> saintmominajnp@gmail.com</p>
+                        <p><i class="fas fa-phone"></i> 08171989806</p>
+                        <p><i class="fas fa-clock"></i> Office Hours: 9:00 AM - 3:00 PM (Mon-Sat)</p>
                         <p><i class="fas fa-bus"></i> School Transport Available</p>
                     </div>
                 </div>
