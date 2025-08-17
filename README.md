@@ -646,7 +646,7 @@
                 <h3>Contact Us</h3>
                 <div class="contact-info">
                     <p><i class="fas fa-map-marker-alt"></i> Jainpur, Meerut Road, Uttar Pradesh 250001</p>
-                    <p><i class="fas fa-envelope"></i> saintmominajpn@gmail.com</p>
+                    <p><i class="fas fa-envelope"></i> saintmominajnp@gmail.com</p>
                     <p><i class="fas fa-phone"></i> 8171989806</p>
                     <p><i class="fas fa-clock"></i> Office Hours: 8:00 AM - 4:00 PM (Mon-Sat)</p>
                 </div>
