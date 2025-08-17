@@ -883,7 +883,6 @@
                 <p>&copy; 2023-2025 Saint Momina School, Jainpur (Meerut Road). All rights reserved.</p>
             </div>
         </div>
-    </footer>
     
     <!-- Login Modal -->
     <div id="loginModal" class="modal">
