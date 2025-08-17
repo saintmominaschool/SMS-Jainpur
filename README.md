@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -879,15 +878,6 @@
                             <p class="admin-names">Mrs. Tanuja Chaudhary</p>
                         </div>
                     </div>
-                    
-                    <div style="background: rgba(255,255,255,0.1); padding: 15px; border-radius: 10px; margin-top: 20px; text-align: center;">
-                        <p style="font-size: 1.1rem; font-weight: 600;">
-                            <i class="fas fa-certificate" style="color: var(--secondary); margin-right: 10px;"></i>
-                            Affiliated to CBSE New Delhi
-                        </p>
-                    </div>
-                </div>
-            </div>
             
             <div class="copyright">
                 <p>&copy; 2023-2025 Saint Momina School, Jainpur (Meerut Road). All rights reserved.</p>
