@@ -955,4 +955,3 @@
                 
                 document.querySelector(this.getAttribute('href')).scrollIntoView({
                     behavior: 'smooth'
-    </script>
