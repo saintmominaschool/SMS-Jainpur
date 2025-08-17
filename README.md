@@ -163,7 +163,7 @@
         /* Payment Section */
         #payment {
             background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);
-            color: white;
+            color: blue;
         }
         
         .section-card {
