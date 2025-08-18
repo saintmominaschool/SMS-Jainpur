@@ -1,20 +1,27 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Saint Momina School - Jainpur (Meerut Road)</title>
+    <title>Saint Momina School - Jainpur | Premium CBSE Education</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #6e48aa;
-            --secondary: #9d50bb;
-            --accent: #2c3e50;
-            --light: #f0f8ff;
+            --primary: #0a0a2a;
+            --secondary: #d4af37;
+            --accent: #6a0dad;
+            --light: #f8f9fa;
             --white: #ffffff;
-            --shadow: 0 4px 20px rgba(0,0,0,0.1);
-            --section-height: 100vh;
+            --dark: #050517;
             --success: #4CAF50;
             --error: #f44336;
+            --section-height: 100vh;
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            --gold-gradient: linear-gradient(135deg, #d4af37 0%, #f9e076 100%);
         }
         
         * {
@@ -25,59 +32,128 @@
         
         body {
             font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            color: #333;
-            line-height: 1.6;
-            background-attachment: fixed;
+            background: var(--dark);
+            color: #e0e0e0;
+            line-height: 1.7;
             overflow-x: hidden;
             scroll-behavior: smooth;
         }
         
-        /* Navigation Dots */
-        .nav-dots {
-            position: fixed;
-            right: 30px;
-            top: 50%;
-            transform: translateY(-50%);
-            z-index: 100;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-        
-        .dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.5);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border: 2px solid var(--primary);
-        }
-        
-        .dot.active {
-            background-color: var(--primary);
-            transform: scale(1.3);
-        }
-        
-        /* Header Section */
+        /* Header & Navigation */
         .header {
-            background: linear-gradient(135deg, #6A11CB 0%, #2575FC 100%);
-            height: var(--section-height);
-            min-height: 600px;
-            position: relative;
-            text-align: center;
-            color: white;
-            overflow: hidden;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 5%;
             display: flex;
-            flex-direction: column;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
-            padding: 20px;
+            z-index: 1000;
+            background: rgba(10, 10, 42, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
         }
         
-        .header::before {
-            content: "";
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gold-gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-right: 15px;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+        }
+        
+        .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 1.8rem;
+            color: var(--white);
+        }
+        
+        .logo-text span {
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            position: relative;
+            padding: 5px 0;
+            transition: var(--transition);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary);
+            transition: var(--transition);
+        }
+        
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .nav-btn {
+            background: var(--gold-gradient);
+            color: var(--primary);
+            padding: 12px 25px;
+            border: none;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+        }
+        
+        .nav-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.5);
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: var(--section-height);
+            min-height: 800px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 5%;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
             position: absolute;
             top: 0;
             left: 0;
@@ -88,43 +164,72 @@
             z-index: 1;
         }
         
-        .header-content {
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(10,10,42,0.6) 0%, rgba(5,5,23,0.9) 100%);
+            z-index: 2;
+        }
+        
+        .hero-content {
             position: relative;
             z-index: 3;
-            max-width: 900px;
-            padding: 20px;
+            text-align: center;
+            max-width: 1000px;
+            padding: 100px 0;
+        }
+        
+        .hero-tag {
+            background: rgba(212, 175, 55, 0.15);
+            color: var(--secondary);
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 500;
+            display: inline-block;
+            margin-bottom: 20px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            backdrop-filter: blur(5px);
         }
         
         .school-name {
-            font-size: 3.5rem;
-            font-weight: 800;
-            margin-bottom: 15px;
-            text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
-            letter-spacing: -1px;
-            background: linear-gradient(45deg, #ff9a9e, #fad0c4, #fad0c4, #a1c4fd);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: gradient 5s ease infinite;
-            background-size: 300% 300%;
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--white);
+            text-shadow: 0 5px 15px rgba(0,0,0,0.3);
         }
         
-        @keyframes gradient {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+        .school-name span {
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .hero-text {
+            font-size: 1.4rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            color: #e0e0e0;
         }
         
         .affiliation-badge {
-            background: rgba(255, 255, 255, 0.9);
-            color: var(--primary);
-            padding: 15px 30px;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            padding: 15px 40px;
             border-radius: 50px;
             font-size: 1.2rem;
-            font-weight: 700;
-            display: inline-block;
-            margin: 20px 0;
-            box-shadow: var(--shadow);
-            border: 2px solid var(--white);
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            margin: 30px 0;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
         
         .cbse-logo {
@@ -138,16 +243,64 @@
             margin-right: 15px;
             font-size: 1.8rem;
             color: var(--primary);
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+        
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 40px;
+        }
+        
+        .hero-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px 35px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            transition: var(--transition);
+            min-width: 220px;
+        }
+        
+        .primary-btn {
+            background: var(--gold-gradient);
+            color: var(--primary);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+        }
+        
+        .primary-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.6);
+        }
+        
+        .secondary-btn {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--secondary);
+        }
+        
+        .secondary-btn:hover {
+            background: rgba(212, 175, 55, 0.1);
+            transform: translateY(-5px);
+        }
+        
+        .hero-btn i {
+            margin-right: 10px;
+            font-size: 1.2rem;
         }
         
         .scroll-down {
             position: absolute;
-            bottom: 30px;
+            bottom: 40px;
             left: 50%;
             transform: translateX(-50%);
             font-size: 2.5rem;
-            color: white;
+            color: var(--secondary);
             animation: bounce 2s infinite;
             z-index: 3;
             cursor: pointer;
@@ -165,114 +318,138 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            padding: 60px 30px;
+            padding: 120px 5%;
             position: relative;
             overflow: hidden;
         }
         
         .section-content {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             width: 100%;
             position: relative;
             z-index: 2;
         }
         
-        /* About Section */
-        #about {
-            background: linear-gradient(135deg, #00cdac 0%, #02aab0 100%);
-            color: white;
+        .section-title {
+            text-align: center;
+            margin-bottom: 70px;
         }
         
-        /* Location Section */
-        #location {
-            background: linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%);
-            color: white;
+        .section-title h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
         }
         
-        /* Gallery Section */
-        #gallery {
-            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-            color: white;
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: var(--secondary);
+            border-radius: 2px;
         }
         
-        /* Payment Section */
-        #payment {
-            background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);
-            color: white;
+        .section-title p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 30px auto 0;
+            color: #b0b0b0;
         }
         
         .section-card {
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.05);
             border-radius: 20px;
-            padding: 40px;
+            padding: 50px;
             box-shadow: var(--shadow);
             position: relative;
             overflow: hidden;
-            transition: transform 0.3s ease;
-            max-width: 1000px;
-            margin: 0 auto;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: var(--transition);
         }
         
         .section-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
         }
         
         .section-card::before {
-            content: "";
+            content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 8px;
             height: 100%;
-            background: linear-gradient(to bottom, var(--primary), var(--secondary));
+            background: var(--gold-gradient);
         }
         
-        h1, h2, h3 {
-            color: var(--primary);
-            margin-bottom: 20px;
+        /* About Section */
+        #about {
+            background: linear-gradient(135deg, var(--dark) 0%, #1a1a40 100%);
         }
         
-        h1 {
-            font-size: 3.2rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
         }
         
-        h2 {
-            font-size: 2.8rem;
+        .about-image {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            height: 500px;
             position: relative;
-            padding-bottom: 15px;
-            margin-top: 0;
-            text-align: center;
-            color: white;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
         }
         
-        h2::after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 4px;
-            background: white;
-            border-radius: 2px;
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
         }
         
-        p {
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        .about-text h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            color: var(--white);
+            margin-bottom: 25px;
+        }
+        
+        .about-text p {
             font-size: 1.1rem;
-            margin-bottom: 20px;
-            color: #444;
+            margin-bottom: 25px;
+            color: #d0d0d0;
         }
         
-        .highlight {
-            background: linear-gradient(120deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.2) 100%);
+        .highlight-box {
+            background: rgba(212, 175, 55, 0.1);
             padding: 30px;
             border-radius: 15px;
-            margin: 30px 0;
-            border-left: 4px solid white;
-            color: white;
+            margin: 40px 0;
+            border-left: 4px solid var(--secondary);
+        }
+        
+        .highlight-box p {
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: var(--white);
+            font-style: italic;
+            margin: 0;
         }
         
         .features {
@@ -283,165 +460,414 @@
         }
         
         .feature-card {
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(255, 255, 255, 0.05);
             border-radius: 15px;
             padding: 30px;
             text-align: center;
-            box-shadow: var(--shadow);
-            transition: all 0.3s ease;
-            border-top: 4px solid var(--primary);
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
         
         .feature-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+            background: rgba(212, 175, 55, 0.05);
+            border-color: rgba(212, 175, 55, 0.2);
         }
         
         .feature-icon {
-            font-size: 3.5rem;
+            width: 80px;
+            height: 80px;
+            background: var(--gold-gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 2rem;
             color: var(--primary);
-            margin-bottom: 20px;
         }
         
         .feature-card h3 {
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             margin-bottom: 15px;
+            color: var(--white);
+        }
+        
+        .feature-card p {
+            color: #b0b0b0;
+            margin-bottom: 0;
+        }
+        
+        /* Campus Section */
+        #campus {
+            background: linear-gradient(135deg, #1a1a40 0%, var(--dark) 100%);
+        }
+        
+        .campus-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
         }
         
         .map-container {
-            margin: 40px 0;
             border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 12px 30px rgba(0,0,0,0.15);
-            height: 400px;
+            box-shadow: var(--shadow);
+            height: 500px;
+            position: relative;
         }
         
         .map {
             width: 100%;
             height: 100%;
             border: none;
-            border-radius: 15px;
         }
         
-        .payment-section {
+        .campus-features {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 25px 0;
+            border-left: 4px solid var(--accent);
+        }
+        
+        .campus-features h3 {
+            font-size: 1.8rem;
+            color: var(--white);
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        
+        .campus-features ul {
+            padding-left: 20px;
+            margin-top: 15px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        
+        .campus-features li {
+            margin-bottom: 15px;
+            color: #d0d0d0;
             display: flex;
-            flex-wrap: wrap;
-            gap: 40px;
+            align-items: flex-start;
+        }
+        
+        .campus-features li::before {
+            content: '✓';
+            color: var(--secondary);
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+        
+        .stat-card {
+            text-align: center;
+            padding: 25px 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            transition: var(--transition);
+        }
+        
+        .stat-card:hover {
+            background: rgba(212, 175, 55, 0.05);
+            transform: translateY(-5px);
+        }
+        
+        .stat-value {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 10px;
+            line-height: 1;
+        }
+        
+        .stat-label {
+            font-size: 1.1rem;
+            color: #b0b0b0;
+        }
+        
+        /* Payment Section */
+        #payment {
+            background: linear-gradient(135deg, var(--dark) 0%, #1a1a40 100%);
+        }
+        
+        .payment-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
             align-items: center;
-            margin: 40px 0;
         }
         
         .payment-info {
-            flex: 1;
-            min-width: 300px;
+            padding-right: 30px;
+        }
+        
+        .payment-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            color: var(--white);
+            margin-bottom: 25px;
+        }
+        
+        .payment-instructions {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 40px 0;
+            border-left: 4px solid var(--secondary);
+        }
+        
+        .payment-instructions h4 {
+            font-size: 1.5rem;
+            color: var(--white);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .payment-instructions ul {
+            padding-left: 20px;
+            margin-top: 15px;
+        }
+        
+        .payment-instructions li {
+            margin-bottom: 15px;
+            color: #d0d0d0;
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .payment-instructions li::before {
+            content: '•';
+            color: var(--secondary);
+            font-size: 1.5rem;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        .qr-container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
         
         .qr-code {
-            text-align: center;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.3);
+            width: 220px;
+            height: 220px;
+            background: var(--white);
+            padding: 15px;
             border-radius: 15px;
-            box-shadow: var(--shadow);
+            margin: 0 auto 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
         }
         
         .qr-code img {
-            width: 200px;
-            height: 200px;
-            border: 2px dashed var(--primary);
-            padding: 15px;
-            background: var(--white);
-            border-radius: 15px;
+            max-width: 100%;
+            height: auto;
         }
         
-        .login-btn {
-            display: inline-flex;
-            align-items: center;
+        .security-badges {
+            display: flex;
             justify-content: center;
-            width: 280px;
-            margin: 30px auto;
-            padding: 16px;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            color: white;
-            border: none;
-            border-radius: 50px;
-            font-size: 1.2rem;
-            font-weight: 600;
-            cursor: pointer;
-            text-align: center;
-            box-shadow: 0 6px 20px rgba(110, 72, 170, 0.4);
-            transition: all 0.3s ease;
-            text-decoration: none;
-        }
-        
-        .login-btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(110, 72, 170, 0.6);
-        }
-        
-        .login-btn i {
-            margin-right: 10px;
-            font-size: 1.4rem;
-        }
-        
-        /* Gallery Section */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
             margin-top: 30px;
         }
         
-        .gallery-item {
+        .badge {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            color: #b0b0b0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .badge i {
+            color: var(--secondary);
+        }
+        
+        /* Portal Section */
+        .portal-section {
+            margin-top: 40px;
+            background: rgba(255, 255, 255, 0.05);
             border-radius: 15px;
-            overflow: hidden;
-            height: 250px;
-            position: relative;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-            transition: all 0.3s ease;
+            padding: 30px;
+            border-top: 3px solid var(--secondary);
         }
         
-        .gallery-item:hover {
-            transform: translateY(-10px) scale(1.03);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+        .portal-section h3 {
+            text-align: center;
+            color: var(--white);
+            margin-bottom: 25px;
+            font-size: 1.8rem;
         }
         
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
+        .portal-btns {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
         }
         
-        .gallery-item:hover img {
-            transform: scale(1.1);
+        .portal-btn {
+            min-width: 220px;
+            padding: 18px 30px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+            border: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
         }
         
-        .gallery-overlay {
-            position: absolute;
-            bottom: 0;
+        .portal-btn.student {
+            background: linear-gradient(135deg, #4a00e0 0%, #8e2de2 100%);
+            color: var(--white);
+            box-shadow: 0 6px 20px rgba(78, 0, 224, 0.4);
+        }
+        
+        .portal-btn.teacher {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            color: var(--white);
+            box-shadow: 0 6px 20px rgba(17, 153, 142, 0.4);
+        }
+        
+        .portal-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .portal-icon {
+            font-size: 2.5rem;
+        }
+        
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
             left: 0;
             width: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            color: white;
-            padding: 15px;
-            transform: translateY(100%);
-            transition: transform 0.3s ease;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
         }
         
-        .gallery-item:hover .gallery-overlay {
-            transform: translateY(0);
+        .modal-content {
+            background: var(--dark);
+            border-radius: 20px;
+            padding: 40px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+            position: relative;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-size: 28px;
+            color: var(--secondary);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .close-modal:hover {
+            transform: rotate(90deg);
+        }
+        
+        .modal-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--white);
+        }
+        
+        .modal-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .form-group {
+            position: relative;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--secondary);
+            font-weight: 500;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 15px;
+            border-radius: 10px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--white);
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+        
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--secondary);
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
+        }
+        
+        .submit-btn {
+            background: var(--gold-gradient);
+            color: var(--primary);
+            border: none;
+            padding: 16px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: var(--transition);
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.6);
         }
         
         /* Footer */
         .footer {
-            background: linear-gradient(135deg, #141E30 0%, #243B55 100%);
-            color: white;
-            min-height: var(--section-height);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+            background: linear-gradient(135deg, #050517 0%, #0a0a2a 100%);
+            padding: 100px 5% 50px;
             position: relative;
-            padding: 70px 20px 30px;
         }
         
         .footer::before {
@@ -451,50 +877,77 @@
             left: 0;
             width: 100%;
             height: 100px;
-            background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" fill="%232c3e50"/><path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" fill="%232c3e50"/><path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="%232c3e50"/></svg>');
+            background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" fill="%23d4af37"/><path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" fill="%23d4af37"/><path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="%23d4af37"/></svg>');
             background-size: cover;
             background-repeat: no-repeat;
         }
         
         .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
+            gap: 50px;
+            max-width: 1400px;
+            margin: 0 auto;
         }
         
         .footer-section h3 {
-            color: white;
+            font-family: 'Playfair Display', serif;
             font-size: 1.8rem;
-            margin-bottom: 25px;
+            color: var(--white);
+            margin-bottom: 30px;
             position: relative;
-            padding-bottom: 10px;
+            padding-bottom: 15px;
         }
         
         .footer-section h3::after {
-            content: "";
+            content: '';
             position: absolute;
             bottom: 0;
             left: 0;
-            width: 50px;
+            width: 60px;
             height: 3px;
             background: var(--secondary);
         }
         
         .contact-info p {
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             margin: 20px 0;
-            color: #e0e0e0;
+            color: #d0d0d0;
             font-size: 1.1rem;
         }
         
         .contact-info i {
             margin-right: 15px;
-            font-size: 1.4rem;
+            font-size: 1.2rem;
             color: var(--secondary);
             min-width: 25px;
+            margin-top: 5px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .social-link {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: var(--secondary);
+            transition: var(--transition);
+        }
+        
+        .social-link:hover {
+            background: var(--secondary);
+            color: var(--primary);
+            transform: translateY(-5px);
         }
         
         .admin-grid {
@@ -504,15 +957,15 @@
         }
         
         .admin-card {
-            background: rgba(255, 255, 255, 0.08);
+            background: rgba(255, 255, 255, 0.05);
             padding: 20px;
             border-radius: 10px;
             text-align: center;
-            transition: all 0.3s ease;
+            transition: var(--transition);
         }
         
         .admin-card:hover {
-            background: rgba(255, 255, 255, 0.15);
+            background: rgba(212, 175, 55, 0.05);
             transform: translateY(-5px);
         }
         
@@ -522,312 +975,175 @@
             color: var(--secondary);
         }
         
+        .admin-card p {
+            color: #b0b0b0;
+            margin: 0;
+        }
+        
         .contact-form input,
         .contact-form textarea {
             width: 100%;
-            padding: 12px;
-            margin-bottom: 15px;
+            padding: 14px;
+            margin-bottom: 20px;
             border: none;
             border-radius: 8px;
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--white);
             font-size: 1rem;
+            transition: var(--transition);
         }
         
-        .contact-form input::placeholder,
-        .contact-form textarea::placeholder {
-            color: #ccc;
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 0 0 2px var(--secondary);
         }
         
         .contact-form button {
-            background: var(--secondary);
-            color: white;
+            background: var(--gold-gradient);
+            color: var(--primary);
             border: none;
-            padding: 12px 25px;
+            padding: 14px 30px;
             border-radius: 50px;
             cursor: pointer;
             font-weight: 600;
-            transition: all 0.3s;
+            transition: var(--transition);
+            font-size: 1.1rem;
+            width: 100%;
         }
         
         .contact-form button:hover {
-            background: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.5);
         }
         
         .copyright {
             text-align: center;
-            padding-top: 40px;
-            margin-top: 40px;
+            padding-top: 60px;
+            margin-top: 60px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: #bbb;
+            color: #b0b0b0;
             font-size: 1rem;
-        }
-        
-        /* Modal */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0,0,0,0.7);
-            backdrop-filter: blur(5px);
-        }
-        
-        .modal-content {
-            background-color: var(--white);
-            margin: 10% auto;
-            padding: 40px;
-            border: none;
-            width: 90%;
-            max-width: 500px;
-            border-radius: 20px;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
-            animation: modalopen 0.5s;
-            position: relative;
-        }
-        
-        @keyframes modalopen {
-            from {opacity: 0; transform: translateY(-60px);}
-            to {opacity: 1; transform: translateY(0);}
-        }
-        
-        .close {
-            color: #aaa;
-            position: absolute;
-            top: 20px;
-            right: 25px;
-            font-size: 32px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: color 0.3s;
-        }
-        
-        .close:hover {
-            color: var(--primary);
-        }
-        
-        .form-group {
-            margin-bottom: 25px;
-            position: relative;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 10px;
-            font-weight: 600;
-            color: var(--primary);
-            font-size: 1.1rem;
-        }
-        
-        .form-group input {
-            width: 100%;
-            padding: 14px;
-            box-sizing: border-box;
-            border: 2px solid #ddd;
-            border-radius: 10px;
-            font-size: 1rem;
-            transition: all 0.3s;
-        }
-        
-        .form-group input:focus {
-            border-color: var(--secondary);
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(157, 80, 187, 0.2);
-        }
-        
-        .submit-btn {
-            width: 100%;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            color: white;
-            padding: 16px;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            font-size: 1.1rem;
-            font-weight: 600;
-            transition: all 0.3s;
-            box-shadow: 0 5px 15px rgba(110, 72, 170, 0.4);
-        }
-        
-        .submit-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(110, 72, 170, 0.6);
-        }
-        
-        .error {
-            color: var(--error);
-            font-size: 0.9rem;
-            margin-top: 5px;
-            display: none;
-        }
-        
-        .success-message {
-            background-color: var(--success);
-            color: white;
-            padding: 15px;
-            border-radius: 8px;
-            margin-top: 20px;
-            text-align: center;
-            display: none;
-        }
-        
-        /* Payment section dark text */
-        .payment-instructions {
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 15px;
-            padding: 25px;
-            margin: 25px 0;
-            border-left: 4px solid #a18cd1;
-        }
-        
-        .payment-instructions h3 {
-            color: #333;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        
-        .payment-instructions ul {
-            padding-left: 20px;
-            margin-top: 15px;
-        }
-        
-        .payment-instructions li {
-            margin-bottom: 10px;
-            color: #444;
-        }
-        
-        /* Dark text for campus features and administration names */
-        .campus-features {
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 15px;
-            padding: 25px;
-            margin: 25px 0;
-            border-left: 4px solid #ff758c;
-        }
-        
-        .campus-features h3 {
-            color: #333;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        
-        .campus-features ul {
-            padding-left: 20px;
-            margin-top: 15px;
-        }
-        
-        .campus-features li {
-            margin-bottom: 10px;
-            color: #444;
-        }
-        
-        .admin-names {
-            color: #333 !important;
-            font-weight: 600;
-            font-size: 1.1rem;
-            margin-top: 8px;
+            max-width: 1400px;
+            margin: 0 auto;
         }
         
         /* Mobile Responsiveness */
-        @media (max-width: 768px) {
-            .school-name {
-                font-size: 2.5rem;
+        @media (max-width: 1100px) {
+            .about-content, 
+            .campus-content, 
+            .payment-content {
+                grid-template-columns: 1fr;
             }
             
-            .affiliation-badge {
-                font-size: 1rem;
-                padding: 10px 20px;
+            .about-image {
+                height: 400px;
             }
             
             .section {
-                padding: 40px 20px;
+                padding: 100px 5%;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
             }
             
-            .section-card {
-                padding: 25px;
+            .school-name {
+                font-size: 3rem;
             }
             
-            h2 {
-                font-size: 2rem;
+            .hero-text {
+                font-size: 1.2rem;
+            }
+            
+            .hero-btns {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .section-title h2 {
+                font-size: 2.8rem;
+            }
+            
+            .campus-features ul {
+                grid-template-columns: 1fr;
             }
             
             .features {
                 grid-template-columns: 1fr;
             }
             
-            .payment-section {
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .portal-btns {
                 flex-direction: column;
-            }
-            
-            .login-btn {
-                width: 100%;
-                max-width: 300px;
-            }
-            
-            .nav-dots {
-                display: none;
-            }
-            
-            .map-container {
-                height: 300px;
-            }
-            
-            .qr-code img {
-                width: 180px;
-                height: 180px;
-            }
-            
-            .gallery-grid {
-                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                align-items: center;
             }
         }
         
         @media (max-width: 480px) {
             .school-name {
-                font-size: 2rem;
+                font-size: 2.5rem;
             }
             
-            .section {
-                padding: 30px 15px;
-            }
-            
-            h2 {
-                font-size: 1.8rem;
+            .section-title h2 {
+                font-size: 2.2rem;
             }
             
             .section-card {
-                padding: 20px;
+                padding: 30px 20px;
             }
             
             .feature-card {
-                padding: 20px;
+                padding: 25px 20px;
             }
             
-            .feature-icon {
-                font-size: 2.8rem;
+            .stat-value {
+                font-size: 2.5rem;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation Dots -->
-    <div class="nav-dots">
-        <div class="dot active" data-target="header"></div>
-        <div class="dot" data-target="about"></div>
-        <div class="dot" data-target="location"></div>
-        <div class="dot" data-target="gallery"></div>
-        <div class="dot" data-target="payment"></div>
-        <div class="dot" data-target="footer"></div>
-    </div>
+    <!-- Header -->
+    <header class="header">
+        <div class="logo">
+            <div class="logo-icon">
+                <i class="fas fa-graduation-cap"></i>
+            </div>
+            <div class="logo-text">Saint <span>Momina</span></div>
+        </div>
+        
+        <nav class="nav-links">
+            <a href="#hero">Home</a>
+            <a href="#about">About</a>
+            <a href="#campus">Campus</a>
+            <a href="#payment">Payments</a>
+            <a href="#footer">Contact</a>
+        </nav>
+        
+        <button class="nav-btn" id="studentPortalBtn">
+            <i class="fas fa-user-graduate"></i> Student Portal
+        </button>
+    </header>
     
-    <!-- Header Section -->
-    <header class="header" id="header">
-        <div class="header-content">
-            <div class="school-name">Saint Momina School</div>
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <div class="hero-tag">
+                <i class="fas fa-star"></i> Premium CBSE Education
+            </div>
+            
+            <h1 class="school-name">Saint <span>Momina</span> School</h1>
+            
+            <p class="hero-text">
+                Premier CBSE affiliated school providing quality education and holistic development for future leaders.
+            </p>
             
             <div class="affiliation-badge">
                 <span class="cbse-logo">
@@ -836,91 +1152,132 @@
                 Affiliated to CBSE New Delhi
             </div>
             
-            <p style="max-width: 700px; margin: 0 auto 30px; font-size: 1.2rem; text-shadow: 0 1px 3px rgba(0,0,0,0.3);">
-            
-            </p>
-            
-            <a href="#about" class="login-btn">
-                <i class="fas fa-book-open"></i> Explore Our School
-            </a>
+            <div class="hero-btns">
+                <a href="#about" class="hero-btn primary-btn">
+                    <i class="fas fa-book-open"></i> Explore Academics
+                </a>
+                <a href="#footer" class="hero-btn secondary-btn">
+                    <i class="fas fa-calendar-check"></i> Schedule Visit
+                </a>
+            </div>
         </div>
         
         <div class="scroll-down">
             <i class="fas fa-chevron-down"></i>
         </div>
-    </header>
+    </section>
     
     <!-- About Section -->
     <section id="about" class="section">
         <div class="section-content">
-            <h2>About Our Prestigious Institution</h2>
+            <div class="section-title">
+                <h2>About Our Institution</h2>
+                <p>Saint Momina School is recognized by CBSE, New Delhi, ensuring our students receive a nationally standardized education of the highest quality.</p>
+            </div>
             
             <div class="section-card">
-                <div class="highlight">
-                    <p style="font-size: 1.3rem; font-weight: 500; text-align: center;">
-                        <i class="fas fa-quote-left" style="color: #02aab0; margin-right: 10px;"></i>
-                        Saint Momina School is recognized by the Central Board of Secondary Education (CBSE), New Delhi, 
-                        ensuring our students receive a nationally standardized education of the highest quality.
-                        <i class="fas fa-quote-right" style="color: #02aab0; margin-left: 10px;"></i>
-                    </p>
+                <div class="about-content">
+                    <div class="about-image">
+                        <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Saint Momina School Campus">
+                    </div>
+                    
+                    <div class="about-text">
+                        <h3>Quality Education for Future Leaders</h3>
+                        <p>Saint Momina School in Jainpur (Meerut Road) is a premier educational institution committed to excellence in academics, sports, and character development. Our state-of-the-art facilities and dedicated staff provide a nurturing environment where students can thrive and reach their full potential.</p>
+                        
+                        <div class="highlight-box">
+                            <p>"Education is not the filling of a pail, but the lighting of a fire." - William Butler Yeats</p>
+                        </div>
+                        
+                        <p>As a CBSE-affiliated institution, we follow a comprehensive curriculum that balances academic rigor with creative and physical development, preparing our students to excel in all competitive examinations and life challenges.</p>
+                    </div>
                 </div>
                 
-                <p>Saint Momina School in Jainpur (Meerut Road) is a premier educational institution committed to excellence in academics, sports, and character development. Our state-of-the-art facilities and dedicated staff provide a nurturing environment where students can thrive and reach their full potential.</p>
-                
-                <p>As a CBSE-affiliated institution, we follow a comprehensive curriculum that balances academic rigor with creative and physical development, preparing our students to excel in all competitive examinations and life challenges.</p>
-                
-                <h3 style="color: #02aab0; text-align: center; margin-top: 30px;">Why Choose Saint Momina?</h3>
+                <h3 style="color: var(--white); text-align: center; margin: 70px 0 30px;">Why Choose Saint Momina?</h3>
                 
                 <div class="features">
                     <div class="feature-card">
                         <div class="feature-icon">
-                            <i class="fas fa-book" style="color: #02aab0;"></i>
+                            <i class="fas fa-book"></i>
                         </div>
-                        <h3 style="color: #02aab0;">CBSE Curriculum</h3>
+                        <h3>CBSE Curriculum</h3>
                         <p>Nationally recognized curriculum with focus on conceptual understanding and application-based learning</p>
                     </div>
                     
                     <div class="feature-card">
                         <div class="feature-icon">
-                            <i class="fas fa-flask" style="color: #02aab0;"></i>
+                            <i class="fas fa-flask"></i>
                         </div>
-                        <h3 style="color: #02aab0;">Modern Labs</h3>
+                        <h3>Modern Labs</h3>
                         <p>Fully equipped science, computer, and language labs for practical, hands-on learning</p>
                     </div>
                     
                     <div class="feature-card">
                         <div class="feature-icon">
-                            <i class="fas fa-medal" style="color: #02aab0;"></i>
+                            <i class="fas fa-medal"></i>
                         </div>
-                        <h3 style="color: #02aab0;">Sports Excellence</h3>
+                        <h3>Sports Excellence</h3>
                         <p>Olympic-standard facilities with coaching in cricket, basketball, athletics and more</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-paint-brush"></i>
+                        </div>
+                        <h3>Arts & Culture</h3>
+                        <p>Comprehensive arts program including music, dance, theater, and visual arts</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- Location Section -->
-    <section id="location" class="section">
+    <!-- Campus Section -->
+    <section id="campus" class="section">
         <div class="section-content">
-            <h2>Our Campus Location</h2>
+            <div class="section-title">
+                <h2>Our Campus</h2>
+                <p>Discover our state-of-the-art facilities designed to inspire learning and personal growth.</p>
+            </div>
             
             <div class="section-card">
-                <p>Our sprawling campus is located in the peaceful surroundings of Jainpur on NH334, easily accessible from Meerut Road. The campus features modern classrooms, lush green spaces, and state-of-the-art facilities designed to inspire learning.</p>
-                
-                <div class="map-container">
-                    <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3507.198713780667!2d77.81242181147911!3d28.473561675650824!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ca394a643777f%3A0x55908d9065d3e268!2sSaint%20Momina%20School%20Jainpur!5e0!3m2!1sen!2sin!4v1755437697134!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <div class="campus-content">
+                    <div class="campus-features">
+                        <h3>Campus Features</h3>
+                        <ul>
+                            <li>Modern classrooms with smart boards</li>
+                            <li>Extensive library with over 5,000 books</li>
+                            <li>Indoor and outdoor sports facilities</li>
+                            <li>Science and computer laboratories</li>
+                            <li>Auditorium with 250-seat capacity</li>
+                            <li>Art and music studios</li>
+                            <li>Cafeteria with nutritious meals</li>
+                            <li>Medical room with full-time nurse</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="map-container">
+                        <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3507.198713780667!2d77.81242181147911!3d28.473561675650824!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ca394a643777f%3A0x55908d9065d3e268!2sSaint%20Momina%20School%20Jainpur!5e0!3m2!1sen!2sin!4v1755437697134!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
                 </div>
                 
-                <div class="campus-features">
-                    <h3>Campus Features</h3>
-                    <ul>
-                        <li>Modern classrooms with smart boards</li>
-                        <li>Extensive library with over 5,000 books</li>
-                        <li>Indoor and outdoor sports facilities</li>
-                        <li>Science and computer laboratories</li>
-                        <li>Auditorium with 250-seat capacity</li>
-                    </ul>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-value">25+</div>
+                        <div class="stat-label">Years of Excellence</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">2,500+</div>
+                        <div class="stat-label">Students</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">120+</div>
+                        <div class="stat-label">Qualified Staff</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">15+</div>
+                        <div class="stat-label">Acres Campus</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -929,15 +1286,19 @@
     <!-- Payment Section -->
     <section id="payment" class="section">
         <div class="section-content">
-            <h2>Fee Payment Portal</h2>
+            <div class="section-title">
+                <h2>Fee Payment</h2>
+                <p>Convenient and secure payment options for our students and parents.</p>
+            </div>
             
             <div class="section-card">
-                <div class="payment-section">
+                <div class="payment-content">
                     <div class="payment-info">
+                        <h3>Secure Payment Portal</h3>
                         <p>Pay your school fees conveniently through our secure online payment system. As a CBSE-affiliated institution, we maintain complete transparency in our fee structure.</p>
                         
                         <div class="payment-instructions">
-                            <h3>Fee Payment Instructions</h3>
+                            <h4>Payment Instructions</h4>
                             <ul>
                                 <li>Scan the QR code with any UPI payment app</li>
                                 <li>Enter the exact amount as per fee statement</li>
@@ -949,259 +1310,278 @@
                         </div>
                     </div>
                     
-                    <div class="qr-code">
-                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://example.com/payment/saint-momina&bgcolor=F0F8FF&color=6E48AA" alt="QR Code for Fee Payment">
-                        <p style="font-size: 1.1rem; margin-top: 15px; color: var(--primary); font-weight: 600;">Scan to Pay School Fees</p>
+                    <div class="qr-container">
+                        <div class="qr-code">
+                            <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://saintmomina.edu/payment&bgcolor=F0F8FF&color=0a0a2a" alt="QR Code for Fee Payment">
+                        </div>
+                        <p style="font-size: 1.1rem; margin-top: 15px; color: var(--white); font-weight: 500;">
+                            Scan to Pay School Fees
+                        </p>
+                        
+                        <div class="security-badges">
+                            <div class="badge">
+                                <i class="fas fa-lock"></i> 256-bit SSL
+                            </div>
+                            <div class="badge">
+                                <i class="fas fa-shield-alt"></i> Secure Payment
+                            </div>
+                        </div>
                     </div>
                 </div>
                 
-                <button class="login-btn" id="loginBtn">
-                    <i class="fas fa-user-graduate"></i> Student Login Portal
-                </button>
+                <!-- Portal Section -->
+                <div class="portal-section">
+                    <h3>Access Your Portal</h3>
+                    <div class="portal-btns">
+                        <button class="portal-btn student" id="studentPortalBtn2">
+                            <i class="fas fa-user-graduate portal-icon"></i>
+                            Student Portal
+                        </button>
+                        <button class="portal-btn teacher" id="teacherPortalBtn">
+                            <i class="fas fa-chalkboard-teacher portal-icon"></i>
+                            Teacher Portal
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
     
     <!-- Footer -->
     <footer class="footer" id="footer">
-        <div class="section-content">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Contact Us</h3>
-                    <div class="contact-info">
-                        <p><i class="fas fa-map-marker-alt"></i> Jainpur, Meerut Road, Uttar Pradesh 250001</p>
-                        <p><i class="fas fa-envelope"></i> saintmominajnp@gmail.com</p>
-                        <p><i class="fas fa-phone"></i> 08171989806</p>
-                        <p><i class="fas fa-clock"></i> Office Hours: 9:00 AM - 3:00 PM (Mon-Sat)</p>
-                        <p><i class="fas fa-bus"></i> School Transport Available</p>
-                    </div>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <div class="contact-info">
+                    <p><i class="fas fa-map-marker-alt"></i> Jainpur, Meerut Road, Uttar Pradesh 250001</p>
+                    <p><i class="fas fa-envelope"></i> admissions@saintmomina.edu</p>
+                    <p><i class="fas fa-phone"></i> 08171989806</p>
+                    <p><i class="fas fa-clock"></i> Office Hours: 8:30 AM - 4:00 PM (Mon-Sat)</p>
+                    <p><i class="fas fa-bus"></i> School Transport Available</p>
                 </div>
                 
-                <div class="footer-section">
-                    <h3>Administration</h3>
-                    <div class="admin-grid">
-                        <div class="admin-card">
-                            <h4>Chairman</h4>
-                            <p class="admin-names">Mr. Shah Faisal</p>
-                        </div>
-                        <div class="admin-card">
-                            <h4>Principal</h4>
-                            <p class="admin-names">Mr. Ajeet Sisodia</p>
-                        </div>
-                        <div class="admin-card">
-                            <h4>Vice Principal</h4>
-                            <p class="admin-names">Mrs. Tanuja Chaudhary</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>Send a Message</h3>
-                    <form class="contact-form" id="contactForm">
-                        <input type="text" placeholder="Your Name" required>
-                        <input type="email" placeholder="Your Email" required>
-                        <textarea placeholder="Your Message" rows="4" required></textarea>
-                        <button type="submit">Send Message</button>
-                        <div class="success-message" id="successMessage">
-                            Thank you! Your message has been sent successfully.
-                        </div>
-                    </form>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
                 </div>
             </div>
             
-            <div class="copyright">
-                <p>&copy; 2023-2025 Saint Momina School, Jainpur (Meerut Road). All rights reserved.</p>
-                <p style="margin-top: 10px;">Affiliated with CBSE New Delhi </p>
+            <div class="footer-section">
+                <h3>Administration</h3>
+                <div class="admin-grid">
+                    <div class="admin-card">
+                        <h4>Chairman</h4>
+                        <p>Mr. Shah Faisal</p>
+                    </div>
+                    <div class="admin-card">
+                        <h4>Principal</h4>
+                        <p>Mr. Ajeet Sisodia</p>
+                    </div>
+                    <div class="admin-card">
+                        <h4>Vice Principal</h4>
+                        <p>Mrs. Tanuja Chaudhary</p>
+                    </div>
+                </div>
             </div>
+            
+            <div class="footer-section">
+                <h3>Send a Message</h3>
+                <form class="contact-form">
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="email" placeholder="Your Email" required>
+                    <input type="tel" placeholder="Phone Number">
+                    <textarea placeholder="Your Message" rows="4" required></textarea>
+                    <button type="submit">
+                        <i class="fas fa-paper-plane"></i> Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; 2023 Saint Momina School, Jainpur (Meerut Road). All rights reserved.</p>
+            <p>Affiliated with CBSE New Delhi | Recognized by the Government of Uttar Pradesh</p>
         </div>
     </footer>
     
-    <!-- Login Modal -->
-    <div id="loginModal" class="modal">
+    <!-- Student Portal Modal -->
+    <div class="modal" id="studentModal">
         <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2 style="color: var(--primary);">Student Login Portal</h2>
-            <form id="loginForm">
+            <span class="close-modal" id="closeStudentModal">&times;</span>
+            <h2 class="modal-title">Student Portal</h2>
+            <form class="modal-form" id="studentForm">
                 <div class="form-group">
-                    <label for="admissionNo">Admission Number:</label>
-                    <input type="text" id="admissionNo" name="admissionNo" required placeholder="Enter admission number">
-                    <div class="error" id="admissionError">Please enter a valid admission number</div>
+                    <label for="studentId">Student ID:</label>
+                    <input type="text" id="studentId" required>
                 </div>
-                
                 <div class="form-group">
-                    <label for="rollNo">Roll Number:</label>
-                    <input type="text" id="rollNo" name="rollNo" required placeholder="Enter roll number">
-                    <div class="error" id="rollError">Please enter a valid roll number</div>
+                    <label for="studentName">Full Name:</label>
+                    <input type="text" id="studentName" required>
                 </div>
-                
                 <div class="form-group">
-                    <label for="studentName">Student Name:</label>
-                    <input type="text" id="studentName" name="studentName" required placeholder="Enter student name">
-                    <div class="error" id="nameError">Please enter a valid name</div>
+                    <label for="studentClass">Class:</label>
+                    <input type="text" id="studentClass" required>
                 </div>
-                
                 <div class="form-group">
-                    <label for="className">Class Studying Now:</label>
-                    <input type="text" id="className" name="className" required placeholder="Enter current class">
-                    <div class="error" id="classError">Please enter a valid class</div>
+                    <label for="studentSection">Section:</label>
+                    <input type="text" id="studentSection" required>
                 </div>
-                
-                <button type="submit" class="submit-btn">Login to Portal</button>
-                <div class="success-message" id="loginSuccess">
-                    Login successful! Redirecting to your dashboard...
+                <button type="submit" class="submit-btn">Access Portal</button>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Teacher Portal Modal -->
+    <div class="modal" id="teacherModal">
+        <div class="modal-content">
+            <span class="close-modal" id="closeTeacherModal">&times;</span>
+            <h2 class="modal-title">Teacher Portal</h2>
+            <form class="modal-form" id="teacherForm">
+                <div class="form-group">
+                    <label for="teacherId">Teacher ID:</label>
+                    <input type="text" id="teacherId" required>
                 </div>
+                <div class="form-group">
+                    <label for="teacherName">Full Name:</label>
+                    <input type="text" id="teacherName" required>
+                </div>
+                <div class="form-group">
+                    <label for="teacherContact">Contact Number:</label>
+                    <input type="tel" id="teacherContact" required>
+                </div>
+                <div class="form-group">
+                    <label for="teacherDept">Department:</label>
+                    <input type="text" id="teacherDept" required>
+                </div>
+                <button type="submit" class="submit-btn">Access Portal</button>
             </form>
         </div>
     </div>
     
     <script>
-        // Modal functionality
-        const modal = document.getElementById("loginModal");
-        const btn = document.getElementById("loginBtn");
-        const span = document.getElementsByClassName("close")[0];
-        
-        btn.onclick = function() {
-            modal.style.display = "block";
-            document.body.style.overflow = "hidden";
-        }
-        
-        span.onclick = function() {
-            modal.style.display = "none";
-            document.body.style.overflow = "auto";
-            resetForm();
-        }
-        
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-                document.body.style.overflow = "auto";
-                resetForm();
-            }
-        }
-        
-        // Form validation and submission
-        const loginForm = document.getElementById("loginForm");
-        const successMessage = document.getElementById("loginSuccess");
-        
-        function resetForm() {
-            loginForm.reset();
-            successMessage.style.display = "none";
-            document.querySelectorAll('.error').forEach(el => {
-                el.style.display = 'none';
-            });
-        }
-        
-        loginForm.onsubmit = function(e) {
-            e.preventDefault();
-            
-            // Reset previous errors
-            document.querySelectorAll('.error').forEach(el => {
-                el.style.display = 'none';
-            });
-            
-            // Simple validation
-            let isValid = true;
-            const admissionNo = document.getElementById("admissionNo").value;
-            const rollNo = document.getElementById("rollNo").value;
-            const studentName = document.getElementById("studentName").value;
-            const className = document.getElementById("className").value;
-            
-            if (!admissionNo || admissionNo.length < 2) {
-                document.getElementById("admissionError").style.display = 'block';
-                isValid = false;
-            }
-            
-            if (!rollNo || rollNo.length < 1) {
-                document.getElementById("rollError").style.display = 'block';
-                isValid = false;
-            }
-            
-            if (!studentName || studentName.length < 3) {
-                document.getElementById("nameError").style.display = 'block';
-                isValid = false;
-            }
-            
-            if (!className) {
-                document.getElementById("classError").style.display = 'block';
-                isValid = false;
-            }
-            
-            if (isValid) {
-                // Show success message
-                successMessage.style.display = 'block';
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
                 
-                // Simulate login process
-                setTimeout(() => {
-                    modal.style.display = "none";
-                    document.body.style.overflow = "auto";
-                    resetForm();
-                    
-                    // In a real application, you would redirect to the student portal
-                    alert("Welcome to Saint Momina School Portal, " + studentName + "!");
-                }, 2000);
-            }
-            
-            return false;
-        }
-        
-        // Contact form submission
-        const contactForm = document.getElementById("contactForm");
-        const contactSuccess = document.getElementById("successMessage");
-        
-        contactForm.onsubmit = function(e) {
-            e.preventDefault();
-            
-            // Simulate form submission
-            contactSuccess.style.display = 'block';
-            
-            // Reset form after success
-            setTimeout(() => {
-                contactForm.reset();
-                contactSuccess.style.display = 'none';
-            }, 3000);
-            
-            return false;
-        }
-        
-        // Navigation dots functionality
-        const dots = document.querySelectorAll('.dot');
-        const sections = document.querySelectorAll('.section, .header, .footer');
-        
-        dots.forEach(dot => {
-            dot.addEventListener('click', function() {
-                const targetId = this.getAttribute('data-target');
-                const targetElement = document.getElementById(targetId);
-                
-                if (targetElement) {
-                    targetElement.scrollIntoView({ behavior: 'smooth' });
-                }
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
             });
         });
         
-        // Scroll detection for active dot
+        // Header scroll effect
         window.addEventListener('scroll', function() {
-            let currentSection = '';
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                
-                if (pageYOffset >= (sectionTop - sectionHeight / 3)) {
-                    currentSection = section.getAttribute('id');
-                }
-            });
-            
-            dots.forEach(dot => {
-                dot.classList.remove('active');
-                if (dot.getAttribute('data-target') === currentSection) {
-                    dot.classList.add('active');
-                }
-            });
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.padding = '15px 5%';
+                header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.2)';
+            } else {
+                header.style.padding = '20px 5%';
+                header.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.15)';
+            }
         });
         
         // Scroll down button
         document.querySelector('.scroll-down').addEventListener('click', function() {
             document.getElementById('about').scrollIntoView({ behavior: 'smooth' });
+        });
+        
+        // Form submission
+        const contactForm = document.querySelector('.contact-form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Thank you for your message! We will contact you shortly.');
+                contactForm.reset();
+            });
+        }
+        
+        // Portal Modals
+        const studentModal = document.getElementById('studentModal');
+        const teacherModal = document.getElementById('teacherModal');
+        
+        // Student Portal Buttons
+        document.getElementById('studentPortalBtn').addEventListener('click', openStudentModal);
+        document.getElementById('studentPortalBtn2').addEventListener('click', openStudentModal);
+        
+        // Teacher Portal Button
+        document.getElementById('teacherPortalBtn').addEventListener('click', openTeacherModal);
+        
+        // Close buttons
+        document.getElementById('closeStudentModal').addEventListener('click', closeStudentModal);
+        document.getElementById('closeTeacherModal').addEventListener('click', closeTeacherModal);
+        
+        // Close modals when clicking outside
+        window.addEventListener('click', function(e) {
+            if (e.target === studentModal) {
+                closeStudentModal();
+            }
+            if (e.target === teacherModal) {
+                closeTeacherModal();
+            }
+        });
+        
+        function openStudentModal() {
+            studentModal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeStudentModal() {
+            studentModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+        
+        function openTeacherModal() {
+            teacherModal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeTeacherModal() {
+            teacherModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+        
+        // Form submissions
+        document.getElementById('studentForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Student portal access request received. Redirecting to dashboard...');
+            closeStudentModal();
+        });
+        
+        document.getElementById('teacherForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Teacher portal access request received. Redirecting to dashboard...');
+            closeTeacherModal();
+        });
+        
+        // Animation on scroll
+        const observerOptions = {
+            threshold: 0.1
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animated');
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.section-card, .feature-card, .stat-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            observer.observe(card);
+            
+            card.classList.contains('animated') && 
+            setTimeout(() => {
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
+            }, 200);
         });
     </script>
 </body>
