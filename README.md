@@ -15,6 +15,7 @@
             --section-height: 100vh;
             --success: #4CAF50;
             --error: #f44336;
+            --teacher-color: #ff6b6b;
         }
         
         * {
@@ -383,6 +384,22 @@
             font-size: 1.4rem;
         }
         
+        .teacher-btn {
+            background: linear-gradient(135deg, var(--teacher-color) 0%, #ff8e8e 100%);
+            box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
+        }
+        
+        .teacher-btn:hover {
+            box-shadow: 0 10px 25px rgba(255, 107, 107, 0.6);
+        }
+        
+        .login-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        
         /* Gallery Section */
         .gallery-grid {
             display: grid;
@@ -653,9 +670,18 @@
             box-shadow: 0 5px 15px rgba(110, 72, 170, 0.4);
         }
         
+        .teacher-submit {
+            background: linear-gradient(135deg, var(--teacher-color) 0%, #ff8e8e 100%);
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+        }
+        
         .submit-btn:hover {
             transform: translateY(-3px);
             box-shadow: 0 8px 20px rgba(110, 72, 170, 0.6);
+        }
+        
+        .teacher-submit:hover {
+            box-shadow: 0 8px 20px rgba(255, 107, 107, 0.6);
         }
         
         .error {
@@ -768,6 +794,11 @@
                 max-width: 300px;
             }
             
+            .login-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
             .nav-dots {
                 display: none;
             }
@@ -809,6 +840,10 @@
             
             .feature-icon {
                 font-size: 2.8rem;
+            }
+            
+            .login-buttons {
+                gap: 15px;
             }
         }
     </style>
@@ -955,9 +990,14 @@
                     </div>
                 </div>
                 
-                <button class="login-btn" id="loginBtn">
-                    <i class="fas fa-user-graduate"></i> Student Login Portal
-                </button>
+                <div class="login-buttons">
+                    <button class="login-btn" id="studentLoginBtn">
+                        <i class="fas fa-user-graduate"></i> Student Login Portal
+                    </button>
+                    <button class="login-btn teacher-btn" id="teacherLoginBtn">
+                        <i class="fas fa-chalkboard-teacher"></i> Teacher Login Portal
+                    </button>
+                </div>
             </div>
         </div>
     </section>
@@ -1016,12 +1056,12 @@
         </div>
     </footer>
     
-    <!-- Login Modal -->
-    <div id="loginModal" class="modal">
+    <!-- Student Login Modal -->
+    <div id="studentLoginModal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
             <h2 style="color: var(--primary);">Student Login Portal</h2>
-            <form id="loginForm">
+            <form id="studentLoginForm">
                 <div class="form-group">
                     <label for="admissionNo">Admission Number:</label>
                     <input type="text" id="admissionNo" name="admissionNo" required placeholder="Enter admission number">
@@ -1047,7 +1087,45 @@
                 </div>
                 
                 <button type="submit" class="submit-btn">Login to Portal</button>
-                <div class="success-message" id="loginSuccess">
+                <div class="success-message" id="studentLoginSuccess">
+                    Login successful! Redirecting to your dashboard...
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Teacher Login Modal -->
+    <div id="teacherLoginModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 style="color: var(--teacher-color);">Teacher Login Portal</h2>
+            <form id="teacherLoginForm">
+                <div class="form-group">
+                    <label for="teacherId">Teacher ID:</label>
+                    <input type="text" id="teacherId" name="teacherId" required placeholder="Enter your teacher ID">
+                    <div class="error" id="teacherIdError">Please enter a valid teacher ID</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="contactNumber">Contact Number:</label>
+                    <input type="tel" id="contactNumber" name="contactNumber" required placeholder="Enter your contact number">
+                    <div class="error" id="contactError">Please enter a valid contact number</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="teacherName">Teacher Name:</label>
+                    <input type="text" id="teacherName" name="teacherName" required placeholder="Enter your full name">
+                    <div class="error" id="teacherNameError">Please enter a valid name</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="teachingSubject">Subject of Teaching:</label>
+                    <input type="text" id="teachingSubject" name="teachingSubject" required placeholder="Enter your teaching subject">
+                    <div class="error" id="subjectError">Please enter a valid subject</div>
+                </div>
+                
+                <button type="submit" class="submit-btn teacher-submit">Login to Portal</button>
+                <div class="success-message" id="teacherLoginSuccess">
                     Login successful! Redirecting to your dashboard...
                 </div>
             </form>
@@ -1056,46 +1134,61 @@
     
     <script>
         // Modal functionality
-        const modal = document.getElementById("loginModal");
-        const btn = document.getElementById("loginBtn");
-        const span = document.getElementsByClassName("close")[0];
+        const studentModal = document.getElementById("studentLoginModal");
+        const teacherModal = document.getElementById("teacherLoginModal");
+        const studentBtn = document.getElementById("studentLoginBtn");
+        const teacherBtn = document.getElementById("teacherLoginBtn");
+        const closeBtns = document.getElementsByClassName("close");
         
-        btn.onclick = function() {
-            modal.style.display = "block";
+        studentBtn.onclick = function() {
+            studentModal.style.display = "block";
             document.body.style.overflow = "hidden";
         }
         
-        span.onclick = function() {
-            modal.style.display = "none";
-            document.body.style.overflow = "auto";
-            resetForm();
+        teacherBtn.onclick = function() {
+            teacherModal.style.display = "block";
+            document.body.style.overflow = "hidden";
+        }
+        
+        for (let i = 0; i < closeBtns.length; i++) {
+            closeBtns[i].onclick = function() {
+                studentModal.style.display = "none";
+                teacherModal.style.display = "none";
+                document.body.style.overflow = "auto";
+                resetForms();
+            }
         }
         
         window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
+            if (event.target == studentModal || event.target == teacherModal) {
+                studentModal.style.display = "none";
+                teacherModal.style.display = "none";
                 document.body.style.overflow = "auto";
-                resetForm();
+                resetForms();
             }
         }
         
         // Form validation and submission
-        const loginForm = document.getElementById("loginForm");
-        const successMessage = document.getElementById("loginSuccess");
+        const studentLoginForm = document.getElementById("studentLoginForm");
+        const teacherLoginForm = document.getElementById("teacherLoginForm");
+        const studentSuccessMessage = document.getElementById("studentLoginSuccess");
+        const teacherSuccessMessage = document.getElementById("teacherLoginSuccess");
         
-        function resetForm() {
-            loginForm.reset();
-            successMessage.style.display = "none";
+        function resetForms() {
+            studentLoginForm.reset();
+            teacherLoginForm.reset();
+            studentSuccessMessage.style.display = "none";
+            teacherSuccessMessage.style.display = "none";
             document.querySelectorAll('.error').forEach(el => {
                 el.style.display = 'none';
             });
         }
         
-        loginForm.onsubmit = function(e) {
+        studentLoginForm.onsubmit = function(e) {
             e.preventDefault();
             
             // Reset previous errors
-            document.querySelectorAll('.error').forEach(el => {
+            document.querySelectorAll('#studentLoginForm .error').forEach(el => {
                 el.style.display = 'none';
             });
             
@@ -1128,16 +1221,69 @@
             
             if (isValid) {
                 // Show success message
-                successMessage.style.display = 'block';
+                studentSuccessMessage.style.display = 'block';
                 
                 // Simulate login process
                 setTimeout(() => {
-                    modal.style.display = "none";
+                    studentModal.style.display = "none";
                     document.body.style.overflow = "auto";
-                    resetForm();
+                    resetForms();
                     
                     // In a real application, you would redirect to the student portal
-                    alert("Welcome to Saint Momina School Portal, " + studentName + "!");
+                    alert("Welcome to Saint Momina Student Portal, " + studentName + "!");
+                }, 2000);
+            }
+            
+            return false;
+        }
+        
+        teacherLoginForm.onsubmit = function(e) {
+            e.preventDefault();
+            
+            // Reset previous errors
+            document.querySelectorAll('#teacherLoginForm .error').forEach(el => {
+                el.style.display = 'none';
+            });
+            
+            // Simple validation
+            let isValid = true;
+            const teacherId = document.getElementById("teacherId").value;
+            const contactNumber = document.getElementById("contactNumber").value;
+            const teacherName = document.getElementById("teacherName").value;
+            const teachingSubject = document.getElementById("teachingSubject").value;
+            
+            if (!teacherId || teacherId.length < 2) {
+                document.getElementById("teacherIdError").style.display = 'block';
+                isValid = false;
+            }
+            
+            if (!contactNumber || contactNumber.length < 10 || isNaN(contactNumber)) {
+                document.getElementById("contactError").style.display = 'block';
+                isValid = false;
+            }
+            
+            if (!teacherName || teacherName.length < 3) {
+                document.getElementById("teacherNameError").style.display = 'block';
+                isValid = false;
+            }
+            
+            if (!teachingSubject) {
+                document.getElementById("subjectError").style.display = 'block';
+                isValid = false;
+            }
+            
+            if (isValid) {
+                // Show success message
+                teacherSuccessMessage.style.display = 'block';
+                
+                // Simulate login process
+                setTimeout(() => {
+                    teacherModal.style.display = "none";
+                    document.body.style.overflow = "auto";
+                    resetForms();
+                    
+                    // In a real application, you would redirect to the teacher portal
+                    alert("Welcome to Saint Momina Teacher Portal, " + teacherName + "!");
                 }, 2000);
             }
             
