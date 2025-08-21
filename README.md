@@ -1026,7 +1026,7 @@
                         </div>
                         <div class="admin-card">
                             <h4>Principal</h4>
-                            <p class="admin-names">Mr. Ajeet Sisodia</p>
+                            <p class="admin-names">Mr. Ajeet Sishodia</p>
                         </div>
                         <div class="admin-card">
                             <h4>Vice Principal</h4>
