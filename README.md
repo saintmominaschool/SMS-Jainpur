@@ -1022,15 +1022,15 @@
                     <div class="admin-grid">
                         <div class="admin-card">
                             <h4>Chairman</h4>
-                            <p class="admin-names">Mr. Shah Faisal</p>
+                            <p class="admin-names">Mr.Shah Faisal</p>
                         </div>
                         <div class="admin-card">
                             <h4>Principal</h4>
-                            <p class="admin-names">Mr. Ajeet Sishodia</p>
+                            <p class="admin-names">Mr.Ajeet Sishodia</p>
                         </div>
                         <div class="admin-card">
                             <h4>Vice Principal</h4>
-                            <p class="admin-names">Mrs. Tanuja Chaudhary</p>
+                            <p class="admin-names">Mrs.Tanuja Chaudhary</p>
                         </div>
                     </div>
                 </div>
