@@ -951,7 +951,7 @@
                     <h3>Campus Features</h3>
                     <ul>
                         <li>Modern classrooms with smart boards</li>
-                        <li>Extensive library with over 5,000 books</li>
+                        <li>Extensive library with over 11,000 books</li>
                         <li>Indoor and outdoor sports facilities</li>
                         <li>Science and computer laboratories</li>
                         <li>Auditorium with 250-seat capacity</li>
